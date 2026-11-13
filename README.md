@@ -1,5 +1,5 @@
 # SITE: https://trilha-ciberseguranca-red-team.vercel.app/
-# Trilha-Ciberseguran-a
+# Trilha-Cibersegurança
 🔐 Minha jornada de aprendizado em Cibersegurança: estudos, práticas, anotações e projetos voltados à Segurança da Informação.
 # 🔐 Trilha Cibersegurança
 
