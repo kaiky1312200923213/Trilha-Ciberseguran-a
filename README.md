@@ -1,40 +1,39 @@
-# SITE: https://trilha-ciberseguranca-red-team.vercel.app/
-# Trilha-Cibersegurança
-🔐 Minha jornada de aprendizado em Cibersegurança: estudos, práticas, anotações e projetos voltados à Segurança da Informação.
-# 🔐 Trilha Cibersegurança
+# Trilha de Cibersegurança — Roadmap Red Team
 
-Bem-vindo ao meu repositório de estudos em **Cibersegurança**!
+**Autor:** Kaiky Yoshio Ono Marins  
+**Site:** [Acessar a Trilha de Cibersegurança](https://trilha-ciberseguranca-red-team.vercel.app/)
 
-Este projeto tem como objetivo documentar minha jornada de aprendizado na área de Segurança da Informação, desenvolvendo conhecimentos teóricos e habilidades práticas por meio de estudos, exercícios, laboratórios e projetos.
+## Sobre o projeto
 
-## 🎯 Objetivos
-- Aprender os fundamentos da Cibersegurança.
-- Compreender redes de computadores e protocolos.
-- Desenvolver conhecimentos em Linux e Windows.
-- Estudar segurança da informação e proteção de dados.
-- Conhecer técnicas de identificação e análise de vulnerabilidades.
-- Praticar conceitos de segurança em ambientes controlados.
-- Desenvolver habilidades em segurança ofensiva e defensiva.
+Projeto pessoal para organizar uma jornada de estudos em Cibersegurança, com foco em construir uma base sólida e evoluir em Segurança Ofensiva (Red Team).
 
-## 📚 Conteúdos estudados
-- Fundamentos de Cibersegurança
-- Redes de Computadores
-- Sistemas Operacionais
-- Linux e Windows
-- Segurança de Redes
-- Criptografia
-- Análise de Vulnerabilidades
-- Ethical Hacking
-- Segurança Ofensiva e Defensiva
+A trilha reúne conteúdos, cursos gratuitos, laboratórios e etapas de aprendizado em uma única interface.
 
-## 🛠️ Metodologia
-Os conteúdos serão organizados em etapas, com materiais de estudo, anotações, exercícios e atividades práticas para acompanhar minha evolução.
+## Funcionalidades
 
-## 📈 Progresso
-Este repositório será atualizado continuamente conforme avanço nos estudos e desenvolvo novas habilidades.
+- Etapas de estudo organizadas por área.
+- Acompanhamento do progresso por curso e da trilha geral.
+- Filtro para ocultar itens concluídos.
+- Backup e restauração do progresso em arquivo JSON.
+- Interface responsiva para computador e dispositivos móveis.
+- Progresso armazenado localmente no navegador.
 
-**Status:** Em desenvolvimento 🚀
+## Tecnologias
 
----
+- HTML5
+- CSS3
+- JavaScript
+- Vercel para hospedagem estática
 
-*Um passo de cada vez, construindo conhecimento e experiência na área de Cibersegurança.*
+## Estrutura do projeto
+
+- `index.html` — aplicação completa.
+- `vercel.json` — cabeçalhos HTTP de segurança para a hospedagem na Vercel.
+
+## Publicação
+
+O projeto é preparado para hospedagem estática na Vercel. Com a integração Git habilitada, atualizações enviadas à branch principal podem gerar novos deploys automaticamente.
+
+## Direitos autorais
+
+© 2026 Kaiky Yoshio Ono Marins. Todos os direitos reservados.
