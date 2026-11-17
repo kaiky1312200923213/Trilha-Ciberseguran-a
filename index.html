@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Portfólio de Kaiky Yoshio Ono Marins. Projetos práticos em Python, inteligência artificial aplicada e desenvolvimento web.">
-  <meta name="theme-color" content="#080909">
+  <meta name="description" content="Portfólio de Kaiky Yoshio Ono Marins. Projetos em Python, inteligência artificial aplicada e desenvolvimento web.">
+  <meta name="theme-color" content="#070707">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Kaiky Yoshio Ono Marins — Portfólio">
   <meta property="og:description" content="Projetos práticos em Python, IA aplicada e desenvolvimento web.">
@@ -14,403 +14,419 @@
   <style>
     :root{
       color-scheme:dark;
-      --black:#080909;
-      --black-2:#0d0f0f;
-      --panel:#111413;
-      --panel-2:#151918;
-      --paper:#f1eee7;
-      --muted:#9a9b95;
-      --soft:#666c66;
-      --line:rgba(241,238,231,.13);
-      --line-hot:rgba(238,112,65,.38);
-      --orange:#f07142;
-      --amber:#e9a64a;
-      --max:1220px;
-      --gutter:clamp(22px,5vw,76px);
+      --ink:#f5f3ef;
+      --muted:#a7a49e;
+      --soft:#74716c;
+      --black:#070707;
+      --black2:#101010;
+      --orange:#ee713e;
+      --orange2:#ff9b55;
+      --line:rgba(255,255,255,.14);
+      --paper:#f3f1eb;
+      --paper-ink:#11110f;
+      --paper-muted:#64645e;
+      --max:1180px;
+      --gutter:clamp(20px,5vw,72px);
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{margin:0;background:var(--black);color:var(--paper);font:15px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
-    body:before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:
-      radial-gradient(ellipse at 82% 13%,rgba(240,113,66,.075),transparent 28%),
-      radial-gradient(ellipse at 12% 62%,rgba(233,166,74,.035),transparent 35%),
-      linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-      background-size:auto,auto,68px 68px,68px 68px;
-      mask-image:linear-gradient(to bottom,black,transparent 80%)}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{margin:0;background:var(--black);color:var(--ink);font:15px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;background:
+      radial-gradient(ellipse at 50% 0%,rgba(238,113,62,.14),transparent 36%),
+      radial-gradient(ellipse at 5% 45%,rgba(238,113,62,.045),transparent 30%),
+      radial-gradient(ellipse at 95% 75%,rgba(255,155,85,.04),transparent 32%);
+      filter:blur(20px);animation:ambient 18s ease-in-out infinite alternate}
+    @keyframes ambient{0%{transform:translate3d(-1%,0,0) scale(1)}100%{transform:translate3d(1.5%,2%,0) scale(1.06)}}
     a{color:inherit}
     button{font:inherit}
-    a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
     .container{width:min(calc(100% - 2 * var(--gutter)),var(--max));margin-inline:auto}
-    .topline{height:3px;background:linear-gradient(90deg,var(--orange),var(--amber) 38%,transparent 78%)}
-    .site-header{position:sticky;top:0;z-index:30;background:rgba(8,9,9,.86);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-    .brand-mark{width:35px;height:35px;display:grid;place-items:center;border:1px solid var(--orange);color:var(--orange);font:800 15px/1 ui-monospace,SFMono-Regular,Menlo,monospace;transform:rotate(-3deg)}
-    .brand-name{display:grid;gap:2px}
-    .brand-name small{font-size:9px;letter-spacing:.2em;color:var(--soft);font-weight:600}
-    .nav-links{display:flex;align-items:center;gap:clamp(14px,2.5vw,34px)}
-    .nav-links a{font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s}
-    .nav-links a:hover{color:var(--orange)}
-    .nav-links .nav-contact{border:1px solid var(--line-hot);padding:9px 15px;color:var(--paper)}
-    .nav-links .nav-contact:hover{background:var(--orange);color:var(--black);border-color:var(--orange)}
-    .hero{position:relative;min-height:min(850px,calc(100svh - 76px));display:flex;align-items:center;overflow:hidden;border-bottom:1px solid var(--line);isolation:isolate}
-    .hero:after{content:"";position:absolute;z-index:-1;right:4%;top:13%;width:min(46vw,620px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(240,113,66,.11),rgba(240,113,66,.025) 34%,transparent 69%);filter:blur(8px);pointer-events:none}
-    .hero-inner{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);gap:24px;align-items:center;padding-block:82px 64px}
-    .hero-copy{position:relative;z-index:2}
-    .eyebrow,.section-kicker{display:flex;align-items:center;gap:11px;color:var(--orange);font:700 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase}
-    .eyebrow:before,.section-kicker:before{content:"";width:27px;height:1px;background:var(--orange)}
-    .hero h1{margin:27px 0 26px;font-size:clamp(52px,7.5vw,104px);line-height:.86;letter-spacing:-.075em;font-weight:760;text-transform:uppercase}
+    .read-progress{position:fixed;left:0;top:0;z-index:100;height:2px;width:0;background:linear-gradient(90deg,var(--orange),#ffd19a);box-shadow:0 0 14px rgba(238,113,62,.85)}
+    .top-note{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;gap:12px;padding:10px var(--gutter);color:#77746e;font:600 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em;text-transform:uppercase}
+    .top-note b{color:var(--orange);font-weight:700}
+    .site-header{position:fixed;top:27px;left:50%;transform:translateX(-50%);z-index:50;width:min(calc(100% - 34px),930px);border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(13,13,13,.76);backdrop-filter:blur(18px);box-shadow:0 12px 48px rgba(0,0,0,.28);transition:top .3s,border-color .3s,background .3s}
+    .site-header.scrolled{top:12px;background:rgba(9,9,9,.92);border-color:rgba(238,113,62,.25)}
+    .nav{height:58px;padding:0 19px 0 23px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:9px;text-decoration:none;white-space:nowrap;font-size:10px;font-weight:850;letter-spacing:.15em;text-transform:uppercase}
+    .brand-symbol{width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:var(--orange);color:#1b0d07;font:900 11px ui-monospace,SFMono-Regular,Menlo,monospace;box-shadow:0 0 22px rgba(238,113,62,.28)}
+    .nav-links{display:flex;align-items:center;gap:clamp(15px,2.8vw,33px)}
+    .nav-links a{color:#c4c0b9;text-decoration:none;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--orange2)}
+    .nav-links .nav-cta{color:#15100c;background:#f2eee7;border-radius:99px;padding:8px 13px}
+    .nav-links .nav-cta:hover{color:#1b0d07;background:var(--orange2)}
+    .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate;padding:125px 0 55px;border-bottom:1px solid var(--line);background:
+      radial-gradient(ellipse at 76% 18%,rgba(238,113,62,.14),transparent 26%),
+      radial-gradient(ellipse at 50% 78%,rgba(238,113,62,.07),transparent 34%),
+      #070707}
+    .hero:before{content:"";position:absolute;z-index:-1;top:18%;right:-8%;width:72%;height:2px;transform:rotate(-23deg);transform-origin:right center;background:linear-gradient(90deg,transparent 0%,rgba(238,113,62,.02) 28%,rgba(238,113,62,.28) 57%,rgba(255,179,110,.98) 77%,rgba(255,224,185,.45) 81%,transparent 100%);box-shadow:0 0 10px rgba(255,131,68,.6),0 0 32px 8px rgba(238,113,62,.25),0 0 90px 24px rgba(238,113,62,.12);filter:blur(1px);animation:beam 8s ease-in-out infinite alternate;pointer-events:none}
+    .hero:after{content:"";position:absolute;z-index:-1;top:4%;right:1%;width:min(55vw,720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(238,113,62,.18),rgba(238,113,62,.05) 28%,transparent 67%);filter:blur(12px);pointer-events:none}
+    @keyframes beam{0%{opacity:.48;transform:translate3d(-3%,0,0) rotate(-23deg) scaleX(.9)}100%{opacity:1;transform:translate3d(2%,12px,0) rotate(-23deg) scaleX(1.08)}}
+    .hero-inner{width:min(calc(100% - 2 * var(--gutter)),1060px);margin:auto;text-align:center;position:relative;z-index:1}
+    .hero-kicker{display:inline-flex;align-items:center;gap:10px;padding:7px 13px;border:1px solid rgba(238,113,62,.28);border-radius:999px;background:rgba(238,113,62,.06);color:#efaa81;font:700 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.17em;text-transform:uppercase}
+    .hero-kicker:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange)}
+    .hero h1{font-size:clamp(47px,8.2vw,112px);font-weight:760;line-height:.91;letter-spacing:-.075em;text-transform:uppercase;margin:28px auto 22px;max-width:1000px}
     .hero h1 span{display:block}
-    .hero h1 .warm{color:var(--orange)}
-    .hero h1 .surname{font-size:.53em;line-height:1.1;letter-spacing:-.045em;margin-top:13px;color:#c8c4bb}
-    .hero-intro{max-width:570px;color:#b7b6af;font-size:clamp(15px,1.4vw,18px);line-height:1.75;margin:0}
-    .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:34px}
-    .button{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 19px;text-decoration:none;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:800;border:1px solid var(--line);transition:background .2s,border-color .2s,transform .2s,color .2s}
+    .hero h1 .accent{color:var(--orange);text-shadow:0 0 35px rgba(238,113,62,.22)}
+    .hero-intro{max-width:660px;margin:0 auto;color:#aaa69f;font-size:clamp(14px,1.35vw,17px);line-height:1.85}
+    .hero-actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:29px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:45px;padding:0 19px;border-radius:999px;text-decoration:none;border:1px solid rgba(255,255,255,.18);font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;transition:transform .25s,background .25s,border-color .25s,color .25s;cursor:pointer}
     .button:hover{transform:translateY(-2px);border-color:var(--orange)}
-    .button.primary{background:var(--orange);border-color:var(--orange);color:#160d08}
-    .button.primary:hover{background:#ff8a5b;border-color:#ff8a5b}
-    .button.secondary{background:rgba(255,255,255,.025);color:var(--paper)}
-    .button.secondary:hover{background:rgba(240,113,66,.08)}
-    .arrow{font-size:15px;line-height:1}
-    .hero-meta{display:flex;flex-wrap:wrap;gap:22px 32px;margin-top:53px;padding-top:19px;border-top:1px solid var(--line);max-width:620px}
-    .meta-item{display:grid;gap:4px}
-    .meta-item small{color:var(--soft);font:600 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase}
-    .meta-item b{font-size:11px;font-weight:650;color:#d2cec4}
-    .hero-art{position:relative;min-height:510px;display:grid;place-items:center}
-    .art-frame{position:relative;width:100%;max-width:650px;aspect-ratio:1.08/1}
-    .art-frame:before{content:"";position:absolute;inset:13% 9%;border:1px solid rgba(240,113,66,.13);transform:rotate(-7deg)}
-    .art-frame:after{content:"";position:absolute;inset:21% 17%;border:1px solid rgba(240,113,66,.09);transform:rotate(8deg)}
-    .network-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-    .network-svg .wire{fill:none;stroke:rgba(240,113,66,.4);stroke-width:1.1;stroke-dasharray:4 7}
-    .network-svg .wire-muted{fill:none;stroke:rgba(241,238,231,.17);stroke-width:1}
-    .network-svg .pulse{fill:none;stroke:var(--orange);stroke-width:2;stroke-dasharray:18 230;stroke-linecap:round;animation:flow 7s linear infinite}
-    .network-svg .core{fill:#101413;stroke:rgba(240,113,66,.8);stroke-width:1.3}
-    .network-svg .core-glow{fill:rgba(240,113,66,.08);stroke:rgba(240,113,66,.24);stroke-width:1}
-    .network-svg .node{fill:#121615;stroke:rgba(241,238,231,.36);stroke-width:1}
-    .network-svg .node-hot{fill:#191310;stroke:rgba(240,113,66,.68);stroke-width:1}
-    .network-svg text{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-    .network-svg .node-label{fill:#d4d0c7;font-size:12px;letter-spacing:2px}
-    .network-svg .node-sub{fill:#777c75;font-size:8px;letter-spacing:1.5px}
-    .network-svg .core-label{fill:var(--orange);font-size:12px;letter-spacing:3px}
-    .network-svg .core-title{fill:#f1eee7;font-size:32px;font-weight:700;letter-spacing:-2px}
-    .network-svg .core-sub{fill:#92948e;font-size:9px;letter-spacing:2px}
-    .art-caption{position:absolute;bottom:4%;right:2%;font:600 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;color:#666d67;text-transform:uppercase}
-    .art-corner{position:absolute;width:52px;height:52px;border-color:rgba(240,113,66,.5);border-style:solid;opacity:.75}
-    .art-corner.one{left:2%;top:5%;border-width:1px 0 0 1px}
-    .art-corner.two{right:2%;bottom:5%;border-width:0 1px 1px 0}
-    @keyframes flow{to{stroke-dashoffset:-248}}
-    .scroll-mark{position:absolute;right:var(--gutter);bottom:28px;display:flex;align-items:center;gap:12px;color:var(--soft);font:600 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;writing-mode:vertical-rl}
-    .scroll-mark:after{content:"";height:44px;width:1px;background:linear-gradient(var(--orange),transparent)}
-    .section{padding:clamp(76px,9vw,124px) 0;border-bottom:1px solid var(--line)}
-    .section-header{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
-    .section-kicker{margin:0 0 15px}
-    .section-title{font-size:clamp(36px,5vw,64px);line-height:.98;letter-spacing:-.065em;font-weight:720;margin:0;text-transform:uppercase}
-    .section-title em{font-style:normal;color:var(--orange)}
-    .section-lead{max-width:420px;color:var(--muted);font-size:14px;line-height:1.8;margin:0}
-    .about-grid{display:grid;grid-template-columns:1fr .78fr;gap:clamp(34px,7vw,104px);align-items:start}
-    .about-copy{max-width:700px}
-    .about-copy p{color:#b6b7b0;font-size:clamp(15px,1.4vw,17px);line-height:1.9;margin:0 0 19px}
-    .about-copy strong{color:var(--paper);font-weight:650}
-    .about-aside{border-top:1px solid var(--line-hot)}
-    .about-row{display:grid;grid-template-columns:48px 1fr;gap:15px;padding:19px 0;border-bottom:1px solid var(--line)}
-    .about-row .num{color:var(--orange);font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;padding-top:3px}
-    .about-row b{display:block;font-size:14px;margin-bottom:4px}
-    .about-row p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}
-    .project-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:-9px 0 24px;padding-bottom:17px;border-bottom:1px solid var(--line)}
+    .button.primary{background:var(--orange);color:#1b0d07;border-color:var(--orange);box-shadow:0 0 30px rgba(238,113,62,.17)}
+    .button.primary:hover{background:#ff925b;border-color:#ff925b;box-shadow:0 0 36px rgba(238,113,62,.3)}
+    .button.secondary{background:rgba(255,255,255,.035);color:#e7e2d9}
+    .button.secondary:hover{background:rgba(255,255,255,.1)}
+    .hero-visual{position:relative;width:min(820px,100%);height:230px;margin:48px auto 0;display:grid;place-items:center;isolation:isolate}
+    .visual-halo{position:absolute;width:300px;height:160px;border-radius:50%;background:rgba(238,113,62,.15);filter:blur(58px);z-index:-1;animation:halo 5s ease-in-out infinite alternate}
+    @keyframes halo{to{transform:scale(1.35);opacity:.65}}
+    .visual-ring{position:absolute;width:190px;height:190px;border-radius:50%;border:1px solid rgba(238,113,62,.25);box-shadow:inset 0 0 40px rgba(238,113,62,.04),0 0 45px rgba(238,113,62,.08);animation:orbit 22s linear infinite}
+    .visual-ring:before,.visual-ring:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.1)}
+    .visual-ring:before{inset:15px;transform:rotateX(68deg) rotate(-20deg)}
+    .visual-ring:after{inset:-12px;transform:rotateX(72deg) rotate(34deg);border-color:rgba(238,113,62,.22)}
+    @keyframes orbit{to{transform:rotate(360deg)}}
+    .visual-core{position:relative;width:104px;height:104px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(145deg,#25201d,#0d0d0d 65%);border:1px solid rgba(255,171,119,.55);box-shadow:0 0 0 8px rgba(238,113,62,.035),0 0 45px rgba(238,113,62,.21),inset 0 0 25px rgba(238,113,62,.1);transform:rotate(-8deg)}
+    .visual-core:before{content:"";position:absolute;inset:-7px;border:1px solid rgba(238,113,62,.18);border-radius:32px}
+    .visual-core strong{font:800 31px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.12em;color:#fff1e7;transform:rotate(8deg)}
+    .visual-core small{position:absolute;bottom:16px;color:var(--orange);font:700 6px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.18em;transform:rotate(8deg)}
+    .orbit-label{position:absolute;display:flex;align-items:center;gap:9px;color:#c8c2b8;font:700 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;text-transform:uppercase}
+    .orbit-label:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange)}
+    .orbit-label.l1{left:7%;top:30%}.orbit-label.l2{right:8%;top:27%}.orbit-label.l3{left:17%;bottom:19%}.orbit-label.l4{right:17%;bottom:18%}
+    .visual-line{position:absolute;width:37%;height:1px;background:linear-gradient(90deg,transparent,rgba(238,113,62,.5),transparent);top:50%;left:0;transform:rotate(12deg);filter:drop-shadow(0 0 8px var(--orange))}
+    .visual-line.r{left:auto;right:0;transform:rotate(-12deg)}
+    .hero-foot{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:5px;color:#73706b;font:600 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase}
+    .hero-foot span+span:before{content:"";display:inline-block;width:4px;height:4px;margin:0 22px 1px 0;border-radius:50%;background:var(--orange)}
+    .scroll-hint{position:absolute;bottom:27px;left:50%;transform:translateX(-50%);color:#716c66;font:600 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+    .scroll-hint:after{content:"";height:28px;width:1px;background:linear-gradient(var(--orange),transparent);position:absolute;top:18px;left:50%}
+    .section{position:relative;padding:clamp(78px,9vw,125px) 0;overflow:hidden}
+    .section-head{max-width:850px;margin:0 auto 46px;text-align:center}
+    .section-kicker{margin:0 0 14px;color:var(--orange);font:700 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.19em;text-transform:uppercase}
+    .section-title{font-size:clamp(34px,5.4vw,68px);line-height:.99;letter-spacing:-.065em;font-weight:730;text-transform:uppercase;margin:0}
+    .section-title .accent{color:var(--orange)}
+    .section-lead{max-width:570px;margin:17px auto 0;color:var(--muted);font-size:14px;line-height:1.8}
+    .dark-section{background:#080808;color:var(--ink);border-bottom:1px solid var(--line)}
+    .light-section{background:var(--paper);color:var(--paper-ink)}
+    .light-section .section-kicker{color:#be532c}
+    .light-section .section-title .accent{color:#d65e31}
+    .light-section .section-lead{color:var(--paper-muted)}
+    .about-layout{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(35px,7vw,100px);align-items:center}
+    .about-copy{max-width:710px}
+    .about-copy p{color:#bcb8b0;font-size:clamp(15px,1.45vw,18px);line-height:1.95;margin:0 0 18px}
+    .about-copy strong{color:#fff;font-weight:680}
+    .about-note{position:relative;padding:29px 28px 27px;border-top:1px solid rgba(238,113,62,.55);border-bottom:1px solid var(--line);background:linear-gradient(140deg,rgba(238,113,62,.075),rgba(255,255,255,.012) 55%,transparent)}
+    .about-note:before{content:"“";position:absolute;top:-14px;right:20px;color:rgba(238,113,62,.28);font:130px Georgia,serif;line-height:1}
+    .about-note .note-label{display:block;color:var(--orange);font:700 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.17em;margin-bottom:15px}
+    .about-note p{position:relative;margin:0;color:#e1dcd2;font-size:20px;line-height:1.5;letter-spacing:-.03em}
+    .projects-shell{position:relative}
+    .project-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 0 17px;margin-bottom:22px;border-bottom:1px solid rgba(17,17,15,.17)}
     .filters{display:flex;flex-wrap:wrap;gap:7px}
-    .filter{min-height:35px;padding:0 13px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s}
-    .filter:hover,.filter[aria-pressed="true"]{border-color:var(--orange);color:var(--paper);background:rgba(240,113,66,.09)}
-    .project-count{font:600 10px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--soft);white-space:nowrap}
-    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .project-card{position:relative;min-width:0;display:flex;flex-direction:column;padding:25px 26px 22px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.008));border:1px solid var(--line);transition:border-color .25s,background .25s,transform .25s;overflow:hidden}
-    .project-card:before{content:"";position:absolute;top:0;left:0;width:44px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-    .project-card:hover{border-color:var(--line-hot);background:linear-gradient(145deg,rgba(240,113,66,.055),rgba(255,255,255,.012));transform:translateY(-3px)}
-    .project-card:hover:before{transform:scaleX(1)}
-    .project-card.feature{grid-column:span 2;display:grid;grid-template-columns:1.15fr .85fr;gap:24px;padding:31px}
-    .project-top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px}
-    .project-index{font:600 11px ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--orange);letter-spacing:.12em}
-    .project-type{color:var(--muted);font:600 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;text-transform:uppercase;text-align:right}
-    .project-card h3{font-size:clamp(21px,2.3vw,29px);line-height:1.12;letter-spacing:-.04em;margin:0 0 12px;font-weight:700}
-    .project-card p{font-size:13px;color:var(--muted);line-height:1.8;margin:0 0 16px}
-    .project-card ul{padding-left:17px;margin:0 0 17px;color:#aaa99f;font-size:12px;line-height:1.75}
+    .filter{min-height:34px;padding:0 13px;border:1px solid rgba(17,17,15,.19);border-radius:99px;background:transparent;color:#69675f;font-size:9px;font-weight:750;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s}
+    .filter:hover,.filter[aria-pressed="true"]{background:#141411;color:#fff;border-color:#141411}
+    .project-count{color:#747169;font:700 9px ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap}
+    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .project-card{position:relative;min-width:0;display:flex;flex-direction:column;padding:24px 25px 22px;min-height:370px;background:#141412;color:#f3f0e9;border:1px solid rgba(17,17,15,.08);border-radius:12px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .project-card:hover{transform:translateY(-5px);box-shadow:0 22px 55px rgba(42,32,20,.16)}
+    .project-card.feature{grid-column:span 2;display:grid;grid-template-columns:1fr .82fr;gap:26px;min-height:335px;padding:30px}
+    .project-top{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:24px}
+    .project-index{color:#ff9569;font:700 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em}
+    .project-type{color:#aaa69e;font:650 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;text-align:right}
+    .project-card h3{font-size:clamp(21px,2.3vw,29px);line-height:1.15;letter-spacing:-.045em;margin:0 0 11px;font-weight:720}
+    .project-card p{font-size:12px;color:#b7b3aa;line-height:1.8;margin:0 0 15px}
+    .project-card ul{padding-left:17px;margin:0 0 16px;color:#b4afa5;font-size:11px;line-height:1.75}
     .project-card li{padding-left:3px;margin:3px 0}
-    .project-status{display:inline-flex;align-items:center;gap:7px;color:#c6c2b8;border:1px solid var(--line);padding:5px 9px;font:600 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
-    .project-status:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange);box-shadow:0 0 9px rgba(240,113,66,.6)}
-    .project-status{margin-top:14px;align-self:flex-start}
-    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:12px}
-    .tag{padding:4px 8px;border:1px solid rgba(241,238,231,.12);color:#c2c1b9;font:500 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.04em}
-    .project-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:15px;border-top:1px solid var(--line)}
-    .project-links a{color:var(--orange);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
-    .project-links a:hover{color:#ff9b73}
-    .project-aside{position:relative;display:flex;align-items:stretch;min-height:230px;border:1px solid rgba(240,113,66,.2);background:#0b0e0d;overflow:hidden}
-    .project-aside:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 47%,rgba(240,113,66,.08) 48%,transparent 49%),linear-gradient(35deg,transparent 58%,rgba(240,113,66,.08) 59%,transparent 60%);background-size:100% 100%}
-    .fake-window{position:relative;z-index:1;align-self:center;width:86%;margin:auto;border:1px solid rgba(241,238,231,.17);background:rgba(12,16,15,.9);box-shadow:0 16px 44px rgba(0,0,0,.45)}
-    .fake-window-top{height:29px;display:flex;align-items:center;gap:5px;padding:0 11px;border-bottom:1px solid var(--line);color:var(--soft);font:600 8px ui-monospace,SFMono-Regular,Menlo,monospace}
-    .fake-window-top i{width:5px;height:5px;border-radius:50%;background:#5a5c56}
-    .fake-window-top span{margin-left:auto;letter-spacing:.08em}
-    .fake-window-body{padding:17px}
-    .fake-window-body small{display:block;color:var(--orange);font:600 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;margin-bottom:12px}
-    .fake-window-body b{display:block;font-size:17px;line-height:1.2;letter-spacing:-.03em;max-width:210px}
-    .fake-window-body p{font-size:9px;color:var(--muted);margin:8px 0 0}
-    .fake-lines{display:grid;gap:6px;margin-top:17px}
-    .fake-lines i{height:3px;background:rgba(241,238,231,.14)}
-    .fake-lines i:nth-child(2){width:74%}.fake-lines i:nth-child(3){width:49%}
-    .project-card:not(.feature) .project-top{margin-bottom:25px}
-    .more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-    .more-item{min-width:0;display:flex;flex-direction:column;padding:17px 18px;border:1px solid var(--line);background:rgba(255,255,255,.015);text-decoration:none;transition:border-color .2s,background .2s}
-    .more-item:hover{border-color:var(--line-hot);background:rgba(240,113,66,.045)}
-    .more-item .more-type{color:var(--orange);font:600 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;text-transform:uppercase}
-    .more-item b{font-size:13px;margin:8px 0 5px}
-    .more-item p{margin:0;color:var(--muted);font-size:11px;line-height:1.6}
-    .more-item .more-arrow{align-self:flex-end;margin-top:10px;color:var(--orange);font-size:13px}
-    .stack{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
-    .stack-group{min-height:160px;padding:23px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .stack-group .stack-no{color:var(--orange);font:600 10px ui-monospace,SFMono-Regular,Menlo,monospace}
-    .stack-group h3{font-size:14px;margin:15px 0 8px}
-    .stack-group p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}
-    .contact-section{position:relative;overflow:hidden;background:radial-gradient(ellipse at 78% 58%,rgba(240,113,66,.1),transparent 38%)}
-    .contact-box{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;padding:clamp(25px,4vw,52px);border:1px solid var(--line-hot);background:rgba(13,15,14,.85)}
-    .contact-box h2{font-size:clamp(38px,5.8vw,72px);line-height:.95;letter-spacing:-.065em;text-transform:uppercase;margin:14px 0}
+    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
+    .tag{padding:4px 8px;border:1px solid rgba(255,255,255,.13);border-radius:99px;color:#d2cdc2;font:500 8px ui-monospace,SFMono-Regular,Menlo,monospace}
+    .project-links{display:flex;flex-wrap:wrap;gap:17px;margin-top:19px;padding-top:14px;border-top:1px solid rgba(255,255,255,.13)}
+    .project-links a{color:#ff9b70;font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;text-decoration:none}
+    .project-links a:hover{color:#ffd2b4}
+    .project-status{display:inline-flex;align-items:center;gap:7px;margin-top:13px;align-self:flex-start;color:#d4cec4;font:650 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+    .project-status:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange)}
+    .project-visual{position:relative;min-height:230px;align-self:stretch;display:grid;place-items:center;overflow:hidden;border:1px solid rgba(238,113,62,.18);border-radius:8px;background:
+      radial-gradient(ellipse at 50% 45%,rgba(238,113,62,.18),transparent 48%),
+      linear-gradient(145deg,#1a1a18,#0b0b0a)}
+    .project-visual:before{content:"";position:absolute;inset:0;background:linear-gradient(130deg,transparent 34%,rgba(255,140,84,.18) 35%,transparent 35.5%);opacity:.55}
+    .project-visual .visual-label{position:absolute;top:13px;left:15px;color:#aaa69d;font:650 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em}
+    .visual-center{position:relative;z-index:1;width:126px;height:126px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,157,106,.53);box-shadow:0 0 0 12px rgba(238,113,62,.045),0 0 65px rgba(238,113,62,.2),inset 0 0 30px rgba(238,113,62,.1);background:radial-gradient(circle at 40% 30%,#3a251a,#11100e 70%)}
+    .visual-center b{color:#fff1e7;font-size:35px;letter-spacing:-.1em}
+    .visual-center small{position:absolute;bottom:25px;color:#ff9a6b;font:700 7px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em}
+    .visual-lines{position:absolute;inset:0;display:grid;align-content:center;gap:17px;padding:0 20px}
+    .visual-lines i{height:1px;background:linear-gradient(90deg,transparent,rgba(238,113,62,.42),transparent);position:relative}
+    .visual-lines i:after{content:"";position:absolute;top:-2px;left:65%;width:5px;height:5px;border-radius:50%;background:#ff9b64;box-shadow:0 0 12px #f07142}
+    .project-visual.rag .visual-center{border-radius:10px;width:118px;height:140px}
+    .project-visual.rag .visual-center b{font:700 25px ui-monospace,SFMono-Regular,Menlo,monospace}
+    .project-visual.rag .visual-center small{bottom:17px}
+    .project-visual.bazar .visual-center{width:150px;height:105px;border-radius:6px}
+    .project-visual.bazar .visual-center b{font-size:25px}
+    .project-visual.bazar .visual-center small{bottom:15px}
+    .project-visual.bot .visual-center{width:148px;height:94px;border-radius:10px}
+    .project-visual.bot .visual-center b{font-size:21px}
+    .project-visual.bot .visual-center small{bottom:12px}
+    .project-visual.aura .visual-center{width:90px;height:160px;border-radius:24px 24px 32px 32px;background:linear-gradient(110deg,#1e1713,#0d0c0b 40%,#422519);box-shadow:0 0 42px rgba(238,113,62,.22)}
+    .project-visual.aura .visual-center:after{content:"";position:absolute;top:-20px;width:27px;height:20px;border:1px solid rgba(255,157,106,.55);border-radius:4px 4px 1px 1px;background:#17110e}
+    .project-visual.aura .visual-center b{font:700 12px Georgia,serif;letter-spacing:.08em}
+    .project-visual.aura .visual-center small{bottom:24px;font-size:6px}
+    .project-visual.trilha .visual-center{border-radius:50%}
+    .more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:10px}
+    .more-item{min-height:145px;display:flex;flex-direction:column;padding:20px;background:#0b0b0b;text-decoration:none;transition:background .2s}
+    .more-item:hover{background:#19110e}
+    .more-item .more-type{color:var(--orange);font:700 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.15em;text-transform:uppercase}
+    .more-item b{font-size:14px;margin:8px 0 5px}
+    .more-item p{margin:0;color:var(--muted);font-size:11px;line-height:1.65}
+    .more-item .more-arrow{align-self:flex-end;margin-top:auto;padding-top:9px;color:var(--orange);font-size:13px}
+    .stack-band{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:45px}
+    .stack-item{padding:10px 15px;border:1px solid rgba(255,255,255,.17);border-radius:99px;background:rgba(255,255,255,.025);color:#d8d3ca;font:650 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em}
+    .stack-item:nth-child(3n+1){border-color:rgba(238,113,62,.4);box-shadow:0 0 22px rgba(238,113,62,.06)}
+    .process-list{max-width:850px;margin:0 auto;border-top:1px solid rgba(17,17,15,.17)}
+    .process-row{display:grid;grid-template-columns:70px 1fr;gap:20px;padding:23px 0;border-bottom:1px solid rgba(17,17,15,.17)}
+    .process-row .num{color:#c65b34;font:700 10px ui-monospace,SFMono-Regular,Menlo,monospace;padding-top:4px}
+    .process-row h3{margin:0 0 5px;font-size:18px;letter-spacing:-.03em}
+    .process-row p{margin:0;color:var(--paper-muted);font-size:13px;line-height:1.75}
+    .faq-list{max-width:850px;margin:0 auto;border-top:1px solid var(--line)}
+    .faq-list details{border-bottom:1px solid var(--line)}
+    .faq-list summary{position:relative;list-style:none;cursor:pointer;padding:20px 38px 20px 0;color:#e9e5dd;font-size:14px;font-weight:650}
+    .faq-list summary::-webkit-details-marker{display:none}
+    .faq-list summary:after{content:"+";position:absolute;right:4px;top:18px;color:var(--orange);font-size:22px;font-weight:400;transition:transform .2s}
+    .faq-list details[open] summary:after{transform:rotate(45deg)}
+    .faq-list details p{max-width:740px;margin:0;padding:0 42px 20px 0;color:var(--muted);font-size:12px;line-height:1.8}
+    .contact{position:relative;overflow:hidden;background:
+      radial-gradient(ellipse at 86% 40%,rgba(238,113,62,.17),transparent 35%),
+      #090909;border-top:1px solid var(--line)}
+    .contact:after{content:"";position:absolute;right:-15%;top:5%;width:50vw;height:2px;background:linear-gradient(90deg,transparent,rgba(255,150,91,.8),transparent);transform:rotate(-26deg);filter:blur(1px);box-shadow:0 0 45px 12px rgba(238,113,62,.2);pointer-events:none}
+    .contact-box{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;align-items:end;gap:32px;padding:clamp(26px,5vw,58px);border:1px solid rgba(238,113,62,.28);border-radius:14px;background:rgba(12,12,12,.76);box-shadow:0 0 70px rgba(238,113,62,.055)}
+    .contact-box h2{font-size:clamp(38px,6vw,76px);line-height:.93;letter-spacing:-.07em;text-transform:uppercase;margin:14px 0}
     .contact-box h2 span{color:var(--orange)}
-    .contact-box p{max-width:590px;margin:0;color:var(--muted);font-size:14px;line-height:1.8}
-    footer{padding:25px 0 32px}
-    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--soft);font:500 9px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
-    .footer-inner a{color:var(--orange);text-decoration:none}
+    .contact-box p{max-width:590px;margin:0;color:var(--muted);font-size:13px;line-height:1.8}
+    footer{padding:25px 0 31px;background:#070707}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;color:#77736d;font:600 8px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
+    .footer-inner a{color:#ef8e62;text-decoration:none}
     .footer-links{display:flex;gap:17px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .85s ease,transform .85s cubic-bezier(.2,.75,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
     [hidden]{display:none!important}
-    @media(max-width:920px){
-      .hero-inner{grid-template-columns:1fr;gap:15px;padding-block:80px 66px}
-      .hero-copy{max-width:760px}
-      .hero-art{min-height:400px;max-width:650px;margin-inline:auto;width:100%}
-      .art-frame{max-width:570px}
-      .about-grid{grid-template-columns:1fr .8fr;gap:38px}
-      .stack{grid-template-columns:repeat(2,minmax(0,1fr))}
-    }
-    @media(max-width:650px){
-      :root{--gutter:19px}
-      .nav{min-height:66px;gap:12px}
-      .brand-name small{display:none}
-      .nav-links{gap:12px}
-      .nav-links a{font-size:9px;letter-spacing:.07em}
-      .nav-links a:nth-child(3){display:none}
-      .nav-links .nav-contact{padding:8px 10px}
-      .hero{min-height:auto}
-      .hero-inner{padding-block:68px 55px}
-      .hero h1{font-size:clamp(54px,14vw,88px);margin-top:24px}
-      .hero h1 .surname{font-size:.55em}
-      .hero-art{min-height:290px;margin-top:4px}
-      .art-caption{font-size:7px}
-      .hero-meta{gap:16px 24px;margin-top:38px}
-      .scroll-mark{display:none}
-      .section{padding:70px 0}
-      .section-header{display:block;margin-bottom:32px}
-      .section-lead{margin-top:18px}
-      .about-grid{grid-template-columns:1fr;gap:25px}
-      .project-toolbar{align-items:flex-start;flex-direction:column}
-      .projects{grid-template-columns:1fr}
-      .project-card.feature{grid-column:auto;display:flex;padding:23px}
-      .project-aside{min-height:185px;order:-1;margin-bottom:5px}
-      .project-card{padding:22px}
+    @media(max-width:850px){
+      .about-layout{grid-template-columns:1fr;gap:35px}
+      .project-card.feature{grid-template-columns:1fr}
+      .project-visual{min-height:210px;order:-1}
       .more-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .stack{grid-template-columns:1fr 1fr}
-      .stack-group{min-height:145px;padding:16px}
-      .contact-box{grid-template-columns:1fr;align-items:start}
-      .contact-box .button{justify-self:start}
-      .footer-inner{align-items:flex-start;flex-direction:column}
     }
-    @media(max-width:390px){
-      .nav-links{gap:8px}
-      .nav-links a{font-size:8px}
-      .brand{gap:8px;font-size:10px}
-      .brand-mark{width:31px;height:31px}
+    @media(max-width:620px){
+      :root{--gutter:18px}
+      .top-note{padding-inline:18px;font-size:7px}
+      .top-note span:last-child{display:none}
+      .site-header{top:24px;width:calc(100% - 22px)}
+      .site-header.scrolled{top:8px}
+      .nav{height:52px;padding:0 12px 0 15px;gap:10px}
+      .brand{font-size:8px;letter-spacing:.12em}
+      .brand-symbol{width:22px;height:22px}
+      .nav-links{gap:11px}
+      .nav-links a{font-size:7px;letter-spacing:.06em}
+      .nav-links a:nth-child(2){display:none}
+      .nav-links .nav-cta{padding:7px 9px}
+      .hero{min-height:100svh;padding:110px 0 45px}
+      .hero h1{font-size:clamp(45px,13.8vw,76px);margin-top:24px}
+      .hero-intro{font-size:13px}
+      .hero-visual{height:190px;margin-top:27px}
+      .visual-ring{width:150px;height:150px}
+      .visual-core{width:84px;height:84px;border-radius:23px}
+      .visual-core strong{font-size:27px}
+      .orbit-label{font-size:7px}
+      .orbit-label.l1{left:0;top:29%}.orbit-label.l2{right:0;top:27%}.orbit-label.l3{left:3%;bottom:15%}.orbit-label.l4{right:2%;bottom:14%}
+      .visual-line{width:30%}
+      .hero-foot{gap:9px;font-size:7px}
+      .hero-foot span+span:before{margin:0 9px 1px 0}
+      .scroll-hint{display:none}
+      .section{padding:72px 0}
+      .section-head{margin-bottom:32px}
+      .section-title{font-size:clamp(34px,10vw,50px)}
+      .section-lead{font-size:12px}
+      .about-note p{font-size:17px}
+      .projects{grid-template-columns:1fr}
+      .project-card.feature{grid-column:auto;padding:21px}
+      .project-card{padding:21px;min-height:0}
+      .project-visual{min-height:180px}
+      .project-toolbar{align-items:flex-start;flex-direction:column}
+      .filters{gap:6px}
+      .filter{padding:0 10px;font-size:8px}
       .more-grid{grid-template-columns:1fr}
+      .more-item{min-height:110px}
+      .stack-band{gap:7px;margin-top:30px}
+      .stack-item{font-size:8px;padding:8px 11px}
+      .process-row{grid-template-columns:38px 1fr;gap:12px;padding:19px 0}
+      .process-row h3{font-size:16px}
+      .contact-box{grid-template-columns:1fr;align-items:start;gap:23px}
+      .footer-inner{align-items:flex-start;flex-direction:column}
+      .footer-links{gap:11px}
     }
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       *,*:before,*:after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
     }
   </style>
 </head>
 <body>
-  <div class="topline" aria-hidden="true"></div>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#inicio" aria-label="Kaiky Yoshio — início">
-        <span class="brand-mark">K.</span>
-        <span class="brand-name">KAIKY YOSHIO<small>PORTFÓLIO / 2026</small></span>
-      </a>
+  <div class="read-progress" id="read-progress" aria-hidden="true"></div>
+  <div class="top-note"><span><b>●</b> PORTFÓLIO PESSOAL / KAIKY YOSHIO</span><span>PYTHON · IA APLICADA · DESENVOLVIMENTO WEB</span></div>
+
+  <header class="site-header" id="site-header">
+    <div class="nav">
+      <a class="brand" href="#inicio" aria-label="Kaiky Yoshio — início"><span class="brand-symbol">K</span><span>KAIKY YOSHIO</span></a>
       <nav class="nav-links" aria-label="Navegação principal">
         <a href="#sobre">Sobre</a>
         <a href="#projetos">Projetos</a>
         <a href="#tecnologias">Stack</a>
-        <a href="#contato" class="nav-contact">Contato ↗</a>
+        <a href="#contato" class="nav-cta">Contato ↗</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <div class="eyebrow">PORTFÓLIO PESSOAL <span> / </span> TECNOLOGIA & SOFTWARE</div>
-          <h1>
-            <span>KAIKY</span>
-            <span class="warm">YOSHIO</span>
-            <span class="surname">ONO MARINS.</span>
-          </h1>
-          <p class="hero-intro">Projetos práticos em Python, inteligência artificial aplicada e desenvolvimento web. Aprendo construindo, testo o que faço e documento o processo.</p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projetos">Explorar projetos <span class="arrow">↘</span></a>
-            <a class="button secondary" href="https://github.com/kaiky1312200923213" target="_blank" rel="noopener noreferrer">GitHub <span class="arrow">↗</span></a>
-          </div>
-          <div class="hero-meta">
-            <div class="meta-item"><small>Foco atual</small><b>Python · IA · Web</b></div>
-            <div class="meta-item"><small>Objetivo</small><b>Estágio / oportunidade júnior</b></div>
-            <div class="meta-item"><small>Base</small><b>Projetos e código público</b></div>
-          </div>
+      <div class="hero-inner">
+        <div class="hero-kicker">PORTFÓLIO / TECNOLOGIA & SOFTWARE</div>
+        <h1><span>Ideias em</span><span class="accent">movimento.</span></h1>
+        <p class="hero-intro">Sou Kaiky Yoshio Ono Marins. Desenvolvo projetos com Python, inteligência artificial aplicada e tecnologias web — sempre buscando transformar aprendizado em algo que funcione de verdade.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projetos">Explorar projetos <span>↘</span></a>
+          <a class="button secondary" href="https://github.com/kaiky1312200923213" target="_blank" rel="noopener noreferrer">Ver GitHub <span>↗</span></a>
         </div>
-
-        <div class="hero-art" aria-label="Diagrama visual de tecnologias conectadas" role="img">
-          <div class="art-frame">
-            <span class="art-corner one"></span><span class="art-corner two"></span>
-            <svg class="network-svg" viewBox="0 0 640 590" aria-hidden="true" focusable="false">
-              <path class="wire-muted" d="M320 285 L133 112 L55 112 M320 285 L503 112 L585 112 M320 285 L91 430 L42 430 M320 285 L550 430 L606 430 M320 285 L320 60 M320 390 L320 520"/>
-              <path class="wire" d="M320 285 L133 112 L55 112 M320 285 L503 112 L585 112 M320 285 L91 430 L42 430 M320 285 L550 430 L606 430 M320 285 L320 60 M320 390 L320 520"/>
-              <path class="pulse" d="M320 285 L133 112 L55 112 M320 285 L503 112 L585 112 M320 285 L91 430 L42 430 M320 285 L550 430 L606 430 M320 285 L320 60 M320 390 L320 520"/>
-              <circle cx="133" cy="112" r="6" fill="#f07142"/><circle cx="503" cy="112" r="6" fill="#f07142"/>
-              <circle cx="91" cy="430" r="6" fill="#f07142"/><circle cx="550" cy="430" r="6" fill="#f07142"/>
-              <circle cx="320" cy="60" r="4" fill="#e9a64a"/><circle cx="320" cy="520" r="4" fill="#e9a64a"/>
-              <rect class="node" x="16" y="77" width="148" height="70" rx="2"/>
-              <text class="node-label" x="34" y="108">PYTHON</text><text class="node-sub" x="34" y="128">AUTOMAÇÃO / DADOS</text>
-              <rect class="node-hot" x="476" y="77" width="148" height="70" rx="2"/>
-              <text class="node-label" x="494" y="108">IA / RAG</text><text class="node-sub" x="494" y="128">MODELOS / BUSCA</text>
-              <rect class="node" x="8" y="395" width="152" height="70" rx="2"/>
-              <text class="node-label" x="27" y="426">WEB</text><text class="node-sub" x="27" y="446">INTERFACES / PRODUTO</text>
-              <rect class="node" x="480" y="395" width="152" height="70" rx="2"/>
-              <text class="node-label" x="498" y="426">LINUX</text><text class="node-sub" x="498" y="446">SISTEMAS / ESTUDO</text>
-              <rect class="core-glow" x="205" y="174" width="230" height="220" rx="4"/>
-              <rect class="core" x="221" y="190" width="198" height="188" rx="3"/>
-              <path d="M250 232h140M250 342h140M250 232v-13m140 13v-13M250 342v13m140-13v13" stroke="#f07142" opacity=".3"/>
-              <text class="core-label" x="250" y="263">PERSONAL NODE</text>
-              <text class="core-title" x="250" y="307">KO /</text>
-              <text class="core-sub" x="250" y="330">KAIKY YOSHIO ONO MARINS</text>
-              <circle cx="320" cy="190" r="3" fill="#f07142"/><circle cx="320" cy="378" r="3" fill="#f07142"/>
-              <path d="M310 60h20M310 520h20" stroke="#e9a64a" opacity=".55"/>
-            </svg>
-            <div class="art-caption">SISTEMAS CONECTADOS / 001</div>
-          </div>
+        <div class="hero-visual" aria-label="Símbolo visual das tecnologias presentes nos projetos" role="img">
+          <div class="visual-halo"></div>
+          <div class="visual-ring"></div>
+          <div class="visual-line"></div><div class="visual-line r"></div>
+          <span class="orbit-label l1">PYTHON</span>
+          <span class="orbit-label l2">IA / RAG</span>
+          <span class="orbit-label l3">WEB</span>
+          <span class="orbit-label l4">LINUX</span>
+          <div class="visual-core"><strong>KO.</strong><small>BUILD / LEARN</small></div>
         </div>
+        <div class="hero-foot"><span>Projetos práticos</span><span>Código documentado</span><span>Aprendizado contínuo</span></div>
       </div>
-      <div class="scroll-mark" aria-hidden="true">SCROLL TO EXPLORE</div>
+      <div class="scroll-hint" aria-hidden="true">ROLE PARA EXPLORAR</div>
     </section>
 
-    <section class="section" id="sobre">
+    <section class="section dark-section" id="sobre">
       <div class="container">
-        <div class="section-header">
-          <div><p class="section-kicker">01 / QUEM SOU</p><h2 class="section-title">Menos discurso.<br><em>Mais construção.</em></h2></div>
-          <p class="section-lead">Um pouco sobre o que estudo, o que venho criando e como gosto de trabalhar com tecnologia.</p>
+        <div class="section-head reveal">
+          <p class="section-kicker">01 / POR TRÁS DOS PROJETOS</p>
+          <h2 class="section-title">Curiosidade que vira<br><span class="accent">construção.</span></h2>
+          <p class="section-lead">Uma apresentação direta sobre o que estudo, o que venho criando e como gosto de trabalhar com tecnologia.</p>
         </div>
-        <div class="about-grid">
-          <div class="about-copy">
+        <div class="about-layout">
+          <div class="about-copy reveal">
             <p>Sou <strong>Kaiky Yoshio Ono Marins</strong>. Gosto de entender como as coisas funcionam e transformar esse aprendizado em algo que dê para usar de verdade.</p>
             <p>Tenho desenvolvido projetos que conectam programação a necessidades práticas: organizar informações, facilitar consultas, automatizar tarefas e criar experiências web. Minha prática passa por <strong>Python e Streamlit, integração com modelos de IA, busca em documentos e interfaces com JavaScript e TypeScript</strong>.</p>
-            <p>Também mantenho uma trilha de estudos em cibersegurança. Não trato tecnologia como uma lista de palavras no currículo: prefiro mostrar o contexto em que cada ferramenta aparece, o que consegui fazer com ela e o que ainda estou aprendendo.</p>
+            <p>Também mantenho uma trilha de estudos em cibersegurança. Prefiro mostrar o contexto em que cada ferramenta aparece, o que consegui fazer com ela e o que ainda estou aprendendo.</p>
           </div>
-          <div class="about-aside">
-            <div class="about-row"><span class="num">01</span><div><b>Aprender fazendo</b><p>Transformar conceitos em pequenos sistemas, testes e protótipos.</p></div></div>
-            <div class="about-row"><span class="num">02</span><div><b>Mostrar o processo</b><p>Deixar código, instruções e decisões técnicas acessíveis nos repositórios.</p></div></div>
-            <div class="about-row"><span class="num">03</span><div><b>Reconhecer limites</b><p>Explicar o que cada projeto faz, o que ainda não faz e onde pode evoluir.</p></div></div>
-          </div>
+          <aside class="about-note reveal">
+            <span class="note-label">MINHA FORMA DE APRENDER</span>
+            <p>Aprender construindo. Testar, documentar, reconhecer limites e melhorar a cada projeto.</p>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="section" id="projetos">
+    <section class="section light-section" id="projetos">
       <div class="container">
-        <div class="section-header">
-          <div><p class="section-kicker">02 / TRABALHOS SELECIONADOS</p><h2 class="section-title">Projetos em<br><em>operação.</em></h2></div>
-          <p class="section-lead">Projetos que mostram diferentes partes do meu aprendizado: aplicações web, automação, IA aplicada e ferramentas de estudo.</p>
+        <div class="section-head reveal">
+          <p class="section-kicker">02 / TRABALHO SELECIONADO</p>
+          <h2 class="section-title">Do conceito ao<br><span class="accent">projeto real.</span></h2>
+          <p class="section-lead">Uma seleção de aplicações, protótipos e ferramentas que mostram diferentes partes do meu aprendizado.</p>
         </div>
-        <div class="project-toolbar">
-          <div class="filters" role="group" aria-label="Filtrar projetos">
-            <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos</button>
-            <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
-            <button class="filter" type="button" data-filter="ai" aria-pressed="false">IA / Python</button>
-            <button class="filter" type="button" data-filter="automation" aria-pressed="false">Automação</button>
-            <button class="filter" type="button" data-filter="study" aria-pressed="false">Estudos</button>
-          </div>
-          <span class="project-count" id="project-count" aria-live="polite">05 PROJETOS</span>
-        </div>
-        <div class="projects" id="project-list">
-          <article class="project-card feature" data-kind="web">
-            <div class="project-content">
-              <div class="project-top"><span class="project-index">PROJECT / 001</span><span class="project-type">APLICAÇÃO WEB · FIREBASE</span></div>
-              <h3>Bazar da Sônia — Catálogo online</h3>
-              <p>Site de catálogo com área pública para consulta de produtos e painel administrativo separado para gestão do conteúdo.</p>
-              <ul><li>Integração com Cloud Firestore.</li><li>Separação entre experiência pública e administração.</li><li>Regras do banco e orientações de operação documentadas.</li></ul>
-              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Firestore</span></div>
-              <div class="project-links"><a href="https://bazarsonia.netlify.app/" target="_blank" rel="noopener noreferrer">Abrir demonstração ↗</a><a href="https://github.com/kaiky1312200923213/Bazar-Sonia" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
-              <span class="project-status">Publicado</span>
+        <div class="projects-shell reveal">
+          <div class="project-toolbar">
+            <div class="filters" role="group" aria-label="Filtrar projetos">
+              <button class="filter" type="button" data-filter="all" aria-pressed="true">Todos</button>
+              <button class="filter" type="button" data-filter="web" aria-pressed="false">Web</button>
+              <button class="filter" type="button" data-filter="ai" aria-pressed="false">IA / Python</button>
+              <button class="filter" type="button" data-filter="automation" aria-pressed="false">Automação</button>
+              <button class="filter" type="button" data-filter="study" aria-pressed="false">Estudos</button>
             </div>
-            <div class="project-aside" aria-hidden="true">
-              <div class="fake-window">
-                <div class="fake-window-top"><i></i><i></i><i></i><span>BAZAR / CATALOGO</span></div>
-                <div class="fake-window-body"><small>CATÁLOGO ONLINE</small><b>Produtos em um só lugar.</b><p>Consulta pública · gestão de conteúdo</p><div class="fake-lines"><i></i><i></i><i></i></div></div>
+            <span class="project-count" id="project-count" aria-live="polite">05 PROJETOS</span>
+          </div>
+          <div class="projects" id="project-list">
+            <article class="project-card feature" data-kind="web">
+              <div class="project-content">
+                <div class="project-top"><span class="project-index">PROJECT / 001</span><span class="project-type">APLICAÇÃO WEB · FIREBASE</span></div>
+                <h3>Bazar da Sônia — Catálogo online</h3>
+                <p>Site de catálogo com área pública para consulta de produtos e painel administrativo separado para gestão do conteúdo.</p>
+                <ul><li>Integração com Cloud Firestore.</li><li>Separação entre experiência pública e administração.</li><li>Regras do banco e orientações de operação documentadas.</li></ul>
+                <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Firestore</span></div>
+                <div class="project-links"><a href="https://bazarsonia.netlify.app/" target="_blank" rel="noopener noreferrer">Abrir demonstração ↗</a><a href="https://github.com/kaiky1312200923213/Bazar-Sonia" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
+                <span class="project-status">Publicado</span>
               </div>
-            </div>
-          </article>
+              <div class="project-visual bazar" aria-hidden="true">
+                <span class="visual-label">CATÁLOGO / ONLINE</span><div class="visual-lines"><i></i><i></i><i></i></div>
+                <div class="visual-center"><b>BS.</b><small>BAZAR DA SÔNIA</small></div>
+              </div>
+            </article>
 
-          <article class="project-card" data-kind="ai">
-            <div class="project-top"><span class="project-index">PROJECT / 002</span><span class="project-type">IA APLICADA · RAG</span></div>
-            <h3>Assistente de manuais em PDF</h3>
-            <p>Aplicação para fazer perguntas sobre um manual em PDF. O conteúdo é extraído, dividido em trechos, indexado e recuperado para contextualizar as respostas do modelo.</p>
-            <ul><li>Busca semântica com FAISS.</li><li>Embeddings e modelo de chat via NVIDIA NIM.</li><li>Respostas apoiadas nos trechos recuperados do documento.</li></ul>
-            <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">NVIDIA NIM</span></div>
-            <div class="project-links"><a href="https://github.com/kaiky1312200923213/ChatBot-Nvidia" target="_blank" rel="noopener noreferrer">Código e instruções ↗</a></div>
-            <span class="project-status">Protótipo funcional</span>
-          </article>
+            <article class="project-card" data-kind="ai">
+              <div class="project-top"><span class="project-index">PROJECT / 002</span><span class="project-type">IA APLICADA · RAG</span></div>
+              <div class="project-visual rag" aria-hidden="true">
+                <span class="visual-label">DOCUMENTO / BUSCA SEMÂNTICA</span><div class="visual-lines"><i></i><i></i><i></i></div>
+                <div class="visual-center"><b>PDF</b><small>FAISS / NVIDIA</small></div>
+              </div>
+              <h3>Assistente de manuais em PDF</h3>
+              <p>Aplicação para fazer perguntas sobre um manual em PDF. O conteúdo é extraído, dividido em trechos, indexado e recuperado para contextualizar as respostas do modelo.</p>
+              <ul><li>Busca semântica com FAISS.</li><li>Embeddings e modelo de chat via NVIDIA NIM.</li><li>Respostas apoiadas nos trechos recuperados do documento.</li></ul>
+              <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">NVIDIA NIM</span></div>
+              <div class="project-links"><a href="https://github.com/kaiky1312200923213/ChatBot-Nvidia" target="_blank" rel="noopener noreferrer">Código e instruções ↗</a></div>
+              <span class="project-status">Protótipo funcional</span>
+            </article>
 
-          <article class="project-card" data-kind="automation">
-            <div class="project-top"><span class="project-index">PROJECT / 003</span><span class="project-type">AUTOMAÇÃO · HELP DESK</span></div>
-            <h3>Bot Supervisor de TI</h3>
-            <p>Assistente para triagem de solicitações de suporte. A aplicação recebe a descrição do problema e organiza informações como prioridade e departamento para apoiar o fluxo de chamados.</p>
-            <ul><li>Interface conversacional em Streamlit.</li><li>Classificação e estruturação da solicitação.</li><li>Configuração do provedor de IA por ambiente.</li></ul>
-            <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">IA</span></div>
-            <div class="project-links"><a href="https://github.com/kaiky1312200923213/sabado-ai-901-senai" target="_blank" rel="noopener noreferrer">Código e instruções ↗</a></div>
-            <span class="project-status">Projeto de estudo</span>
-          </article>
+            <article class="project-card" data-kind="automation">
+              <div class="project-top"><span class="project-index">PROJECT / 003</span><span class="project-type">AUTOMAÇÃO · HELP DESK</span></div>
+              <div class="project-visual bot" aria-hidden="true">
+                <span class="visual-label">TRIAGEM / SUPORTE DE TI</span><div class="visual-lines"><i></i><i></i><i></i></div>
+                <div class="visual-center"><b>SUPORTE</b><small>BOT / IA</small></div>
+              </div>
+              <h3>Bot Supervisor de TI</h3>
+              <p>Assistente para triagem de solicitações de suporte. A aplicação recebe a descrição do problema e organiza informações como prioridade e departamento para apoiar o fluxo de chamados.</p>
+              <ul><li>Interface conversacional em Streamlit.</li><li>Classificação e estruturação da solicitação.</li><li>Configuração do provedor de IA por ambiente.</li></ul>
+              <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">IA</span></div>
+              <div class="project-links"><a href="https://github.com/kaiky1312200923213/sabado-ai-901-senai" target="_blank" rel="noopener noreferrer">Código e instruções ↗</a></div>
+              <span class="project-status">Projeto de estudo</span>
+            </article>
 
-          <article class="project-card" data-kind="web">
-            <div class="project-top"><span class="project-index">PROJECT / 004</span><span class="project-type">DESENVOLVIMENTO WEB · E-COMMERCE</span></div>
-            <h3>AURA Parfum — Loja virtual</h3>
-            <p>Projeto de e-commerce com interface web e integração com Supabase. O repositório documenta como configurar o ambiente, iniciar a aplicação e gerar a versão de produção.</p>
-            <ul><li>Front-end com Vite e TypeScript.</li><li>Estilização com Tailwind CSS.</li><li>Integração do cliente Supabase e configuração de deploy.</li></ul>
-            <div class="tags"><span class="tag">Vite</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Supabase</span></div>
-            <div class="project-links"><a href="https://auraparfum.netlify.app/" target="_blank" rel="noopener noreferrer">Abrir demonstração ↗</a><a href="https://github.com/kaiky1312200923213/aura-parfum-shop" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
-            <span class="project-status">Em desenvolvimento</span>
-          </article>
+            <article class="project-card" data-kind="web">
+              <div class="project-top"><span class="project-index">PROJECT / 004</span><span class="project-type">WEB · E-COMMERCE</span></div>
+              <div class="project-visual aura" aria-hidden="true">
+                <span class="visual-label">AURA / PARFUM</span><div class="visual-lines"><i></i><i></i><i></i></div>
+                <div class="visual-center"><b>AURA</b><small>PARFUM</small></div>
+              </div>
+              <h3>AURA Parfum — Loja virtual</h3>
+              <p>Projeto de e-commerce com interface web e integração com Supabase. O repositório documenta como configurar o ambiente, iniciar a aplicação e gerar a versão de produção.</p>
+              <ul><li>Front-end com Vite e TypeScript.</li><li>Estilização com Tailwind CSS.</li><li>Integração do cliente Supabase e configuração de deploy.</li></ul>
+              <div class="tags"><span class="tag">Vite</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Supabase</span></div>
+              <div class="project-links"><a href="https://auraparfum.netlify.app/" target="_blank" rel="noopener noreferrer">Abrir demonstração ↗</a><a href="https://github.com/kaiky1312200923213/aura-parfum-shop" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
+              <span class="project-status">Em desenvolvimento</span>
+            </article>
 
-          <article class="project-card" data-kind="study">
-            <div class="project-top"><span class="project-index">PROJECT / 005</span><span class="project-type">FERRAMENTA EDUCACIONAL · CIBERSEGURANÇA</span></div>
-            <h3>Trilha de Cibersegurança</h3>
-            <p>Aplicação para organizar uma jornada de estudos por áreas, acompanhar o progresso e levar os dados de estudo para outro dispositivo.</p>
-            <ul><li>Oito fases de estudo com conteúdo organizado.</li><li>Progresso salvo localmente no navegador.</li><li>Backup e restauração do progresso em JSON.</li></ul>
-            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Vercel</span></div>
-            <div class="project-links"><a href="/trilha.html">Abrir aplicação ↗</a><a href="https://github.com/kaiky1312200923213/Trilha-Ciberseguran-a" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
-            <span class="project-status">Publicado</span>
-          </article>
+            <article class="project-card" data-kind="study">
+              <div class="project-top"><span class="project-index">PROJECT / 005</span><span class="project-type">FERRAMENTA EDUCACIONAL · CIBERSEGURANÇA</span></div>
+              <div class="project-visual trilha" aria-hidden="true">
+                <span class="visual-label">ROADMAP / LABORATÓRIOS</span><div class="visual-lines"><i></i><i></i><i></i></div>
+                <div class="visual-center"><b>08</b><small>FASES</small></div>
+              </div>
+              <h3>Trilha de Cibersegurança</h3>
+              <p>Aplicação para organizar uma jornada de estudos por áreas, acompanhar o progresso e levar os dados de estudo para outro dispositivo.</p>
+              <ul><li>Oito fases de estudo com conteúdo organizado.</li><li>Progresso salvo localmente no navegador.</li><li>Backup e restauração do progresso em JSON.</li></ul>
+              <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Vercel</span></div>
+              <div class="project-links"><a href="/trilha.html">Abrir aplicação ↗</a><a href="https://github.com/kaiky1312200923213/Trilha-Ciberseguran-a" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
+              <span class="project-status">Publicado</span>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="outros">
+    <section class="section dark-section" id="outros">
       <div class="container">
-        <div class="section-header">
-          <div><p class="section-kicker">03 / LABORATÓRIO</p><h2 class="section-title">Outras<br><em>experiências.</em></h2></div>
-          <p class="section-lead">Experimentos, estudos e projetos complementares. Cada item leva ao repositório para consulta do código.</p>
+        <div class="section-head reveal">
+          <p class="section-kicker">03 / EXPERIMENTOS E ESTUDOS</p>
+          <h2 class="section-title">O laboratório<br><span class="accent">continua.</span></h2>
+          <p class="section-lead">Projetos complementares e experimentos disponíveis no GitHub.</p>
         </div>
-        <div class="more-grid">
+        <div class="more-grid reveal">
           <a class="more-item" href="https://github.com/kaiky1312200923213/AURA-IA" target="_blank" rel="noopener noreferrer"><span class="more-type">PYTHON / IA</span><b>AURA IA</b><p>Chat em Python com Streamlit e histórico em SQLite.</p><span class="more-arrow">↗</span></a>
           <a class="more-item" href="https://github.com/kaiky1312200923213/AgentLang" target="_blank" rel="noopener noreferrer"><span class="more-type">AGENTES</span><b>AgentLang</b><p>Agente com LangGraph para consultar dados SQLite.</p><span class="more-arrow">↗</span></a>
           <a class="more-item" href="https://github.com/kaiky1312200923213/AgentChinook" target="_blank" rel="noopener noreferrer"><span class="more-type">AGENTES</span><b>AgentChinook</b><p>Experimento de agente e consultas sobre banco Chinook.</p><span class="more-arrow">↗</span></a>
@@ -422,30 +438,48 @@
       </div>
     </section>
 
-    <section class="section" id="tecnologias">
+    <section class="section light-section" id="tecnologias">
       <div class="container">
-        <div class="section-header">
-          <div><p class="section-kicker">04 / FERRAMENTAS</p><h2 class="section-title">Stack em<br><em>contexto.</em></h2></div>
-          <p class="section-lead">Tecnologias agrupadas pelo uso nos projetos. A lista mostra ferramentas utilizadas, não uma escala de proficiência.</p>
+        <div class="section-head reveal">
+          <p class="section-kicker">04 / FERRAMENTAS EM USO</p>
+          <h2 class="section-title">Tecnologia é<br><span class="accent">meio, não vitrine.</span></h2>
+          <p class="section-lead">Estas são as ferramentas que aparecem nos projetos apresentados — agrupadas pelo contexto de uso, não como uma escala de proficiência.</p>
         </div>
-        <div class="stack">
-          <div class="stack-group"><span class="stack-no">01 — CÓDIGO</span><h3>Linguagens e interface</h3><p>Python<br>JavaScript · TypeScript<br>HTML · CSS</p></div>
-          <div class="stack-group"><span class="stack-no">02 — INTELIGÊNCIA</span><h3>IA e recuperação</h3><p>Streamlit · LangChain<br>Agno · FAISS<br>NVIDIA NIM</p></div>
-          <div class="stack-group"><span class="stack-no">03 — DADOS</span><h3>Dados e serviços</h3><p>SQLite · Supabase<br>Firebase / Firestore<br>Pandas</p></div>
-          <div class="stack-group"><span class="stack-no">04 — ENTREGA</span><h3>Ferramentas e publicação</h3><p>Git · GitHub<br>Vite · Tailwind CSS<br>Netlify · Vercel</p></div>
+        <div class="process-list reveal">
+          <div class="process-row"><span class="num">01 / CODE</span><div><h3>Linguagens e interface</h3><p>Python, JavaScript, TypeScript, HTML e CSS.</p></div></div>
+          <div class="process-row"><span class="num">02 / AI</span><div><h3>IA e recuperação de informação</h3><p>Streamlit, LangChain, Agno, FAISS e NVIDIA NIM.</p></div></div>
+          <div class="process-row"><span class="num">03 / DATA</span><div><h3>Dados e serviços</h3><p>SQLite, Supabase, Firebase / Firestore e Pandas.</p></div></div>
+          <div class="process-row"><span class="num">04 / SHIP</span><div><h3>Ferramentas e publicação</h3><p>Git, GitHub, Vite, Tailwind CSS, Netlify e Vercel.</p></div></div>
+        </div>
+        <div class="stack-band reveal" aria-label="Tecnologias"><span class="stack-item">PYTHON</span><span class="stack-item">JAVASCRIPT</span><span class="stack-item">TYPESCRIPT</span><span class="stack-item">STREAMLIT</span><span class="stack-item">LANGCHAIN</span><span class="stack-item">FAISS</span><span class="stack-item">NVIDIA NIM</span><span class="stack-item">FIREBASE</span><span class="stack-item">SUPABASE</span><span class="stack-item">GIT</span><span class="stack-item">LINUX</span></div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="perguntas">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-kicker">05 / CONTEXTO</p>
+          <h2 class="section-title">Antes de seguir<br><span class="accent">explorando.</span></h2>
+          <p class="section-lead">Algumas respostas rápidas sobre meu momento e sobre o que está apresentado aqui.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details><summary>Quais áreas aparecem nos projetos?</summary><p>Desenvolvimento web, Python, automação, inteligência artificial aplicada e uma trilha de estudos em cibersegurança.</p></details>
+          <details><summary>Os projetos estão todos em produção?</summary><p>Não. Cada projeto está identificado pelo seu estado: publicado, protótipo funcional, projeto de estudo ou em desenvolvimento. Os links levam às demonstrações disponíveis ou aos repositórios.</p></details>
+          <details><summary>Onde posso ver o código?</summary><p>Os links de cada projeto levam ao respectivo repositório no GitHub, onde estão o código e as instruções disponíveis.</p></details>
+          <details><summary>O que estou procurando?</summary><p>Uma oportunidade para aprender com uma equipe, contribuir com projetos e evoluir na área de tecnologia.</p></details>
         </div>
       </div>
     </section>
 
-    <section class="section contact-section" id="contato">
+    <section class="section contact" id="contato">
       <div class="container">
-        <div class="contact-box">
+        <div class="contact-box reveal">
           <div>
-            <p class="section-kicker">05 / PRÓXIMO PASSO</p>
-            <h2>Vamos tirar<br>algo do <span>papel?</span></h2>
-            <p>Estou buscando uma oportunidade para aprender com uma equipe, contribuir com projetos e evoluir na área de tecnologia. No GitHub estão os códigos e a documentação dos trabalhos apresentados aqui.</p>
+            <p class="section-kicker">06 / PRÓXIMA CONEXÃO</p>
+            <h2>Vamos construir<br>algo <span>bom?</span></h2>
+            <p>Estou buscando uma oportunidade para aprender com uma equipe, contribuir com projetos e evoluir na área de tecnologia. Meu GitHub reúne os códigos e a documentação dos trabalhos apresentados aqui.</p>
           </div>
-          <a class="button primary" href="https://github.com/kaiky1312200923213" target="_blank" rel="noopener noreferrer">Acessar meu GitHub <span class="arrow">↗</span></a>
+          <a class="button primary" href="https://github.com/kaiky1312200923213" target="_blank" rel="noopener noreferrer">Acessar meu GitHub ↗</a>
         </div>
       </div>
     </section>
@@ -463,6 +497,9 @@
       const cards = Array.from(document.querySelectorAll(".project-card"));
       const filters = Array.from(document.querySelectorAll("[data-filter]"));
       const count = document.getElementById("project-count");
+      const header = document.getElementById("site-header");
+      const progress = document.getElementById("read-progress");
+      const revealItems = document.querySelectorAll(".reveal");
 
       function applyFilter(value) {
         let visible = 0;
@@ -476,12 +513,39 @@
           button.setAttribute("aria-pressed", String(button.dataset.filter === value));
         }
       }
+      for (const button of filters) button.addEventListener("click", () => applyFilter(button.dataset.filter));
+      applyFilter("all");
 
-      for (const button of filters) {
-        button.addEventListener("click", () => applyFilter(button.dataset.filter));
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if ("IntersectionObserver" in window && !reduceMotion) {
+        const observer = new IntersectionObserver(entries => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          }
+        }, {threshold: 0.12});
+        revealItems.forEach(item => observer.observe(item));
+      } else {
+        revealItems.forEach(item => item.classList.add("visible"));
       }
 
-      applyFilter("all");
+      let scheduled = false;
+      function updateScroll() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+        progress.style.width = pct + "%";
+        header.classList.toggle("scrolled", window.scrollY > 50);
+        scheduled = false;
+      }
+      window.addEventListener("scroll", () => {
+        if (!scheduled) {
+          scheduled = true;
+          window.requestAnimationFrame(updateScroll);
+        }
+      }, {passive:true});
+      updateScroll();
     })();
   </script>
 </body>
