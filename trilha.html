@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Trilha de estudos com cursos, laboratórios e acompanhamento de progresso.">
+<meta name="theme-color" content="#0c0d0e">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Trilha de Cibersegurança</title>
+<style>
+:root{
+--bg:#0c0d0e;--bg2:#131517;--tx:#f2efe9;--mu:#a29e96;--ln:rgba(242,239,233,.16);--am:#f0b429;
+--disp:"Bebas Neue","Oswald","Haettenschweiler","Arial Narrow Bold","Impact",sans-serif-condensed,sans-serif;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+--ml:clamp(20px,6vw,96px);color-scheme:dark}
+*{box-sizing:border-box}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+html{scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 var(--sans);overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--am);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* linha de progresso geral */
+#top{position:fixed;top:0;left:0;right:0;height:2px;z-index:20;background:transparent}
+#top i{display:block;height:100%;width:0;background:var(--am);transition:width .6s}
+
+/* cabeçalho */
+.site{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px 28px;flex-wrap:wrap;padding:calc(20px + env(safe-area-inset-top,0px)) var(--ml) 16px;transition:background .3s,padding .3s}
+.site.sol{background:rgba(12,13,14,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:12px;border-bottom:1px solid var(--ln)}
+.brand{display:flex;align-items:center;gap:10px;font:700 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none}
+.brand svg{width:18px;height:18px;stroke:var(--tx);fill:none;stroke-width:1.2}
+.site nav{display:flex;align-items:center;gap:6px 26px;flex-wrap:wrap}
+.site nav a,.site nav button{background:none;border:0;padding:6px 0;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--tx);opacity:.78;border-bottom:1px solid transparent}
+.site nav a:hover,.site nav button:hover{opacity:1;border-bottom-color:var(--am)}
+.site nav a[aria-current]{opacity:1;border-bottom-color:var(--am)}
+
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-rows:1fr auto;padding:0 0 clamp(28px,5vh,56px) var(--ml);isolation:isolate;touch-action:pan-y}
+#bg,.scrim{position:absolute;inset:0;z-index:-1}
+.bgl{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
+.bgl.on{opacity:1}
+.bgl svg{display:block;width:100%;height:100%;transform:scale(1.07);transition:transform 7s ease-out}
+.bgl.on svg{transform:none}
+.scrim{background:linear-gradient(90deg,rgba(8,9,10,.74),rgba(8,9,10,.12) 58%,rgba(8,9,10,.22)),linear-gradient(0deg,rgba(8,9,10,.72),rgba(8,9,10,0) 42%),linear-gradient(180deg,rgba(8,9,10,.5),rgba(8,9,10,0) 22%)}
+.hc{grid-column:1;grid-row:1;align-self:end;padding:130px 24px 34px 0;max-width:640px}
+.eb{display:flex;flex-direction:column;gap:12px;margin:0 0 14px;font-size:13px;letter-spacing:.04em;color:var(--tx);opacity:.9}
+.eb::before{content:"";width:18px;height:2px;background:var(--tx)}
+.hero h2{font:400 clamp(44px,5vw,100px)/.92 var(--disp);letter-spacing:.012em;text-transform:uppercase;margin:0 0 20px;overflow-wrap:anywhere;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hp{max-width:44ch;margin:0 0 6px;font-size:14px;color:rgba(242,239,233,.86)}
+.hs{margin:0 0 22px;font-size:12px;letter-spacing:.06em;color:var(--mu)}
+.ha{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.go{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--am);color:#1a1405;text-decoration:none}
+.go svg,.ar svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ol{display:inline-flex;align-items:center;min-height:34px;padding:0 20px;border:1px solid rgba(242,239,233,.55);border-radius:999px;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
+.ol:hover{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.sw .eb,.sw h2,.sw .hp,.sw .hs,.sw .ha{animation:up .7s cubic-bezier(.2,.8,.2,1) both}
+.sw h2{animation-delay:.06s}.sw .hp{animation-delay:.12s}.sw .hs{animation-delay:.16s}.sw .ha{animation-delay:.2s}
+@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* cards laterais */
+.rail{grid-column:2;grid-row:1;align-self:end;display:flex;gap:16px;overflow:hidden;padding:0 0 34px;margin-left:clamp(0px,2vw,32px)}
+.cd{position:relative;flex:0 0 clamp(120px,12.5vw,190px);aspect-ratio:3/4.1;border:1px solid rgba(255,255,255,.22);border-radius:6px;overflow:hidden;padding:0;background:#222;text-align:left;box-shadow:0 18px 40px -16px rgba(0,0,0,.6);animation:slide .7s cubic-bezier(.2,.8,.2,1) var(--d,0s) both;transition:transform .35s}
+.cd:hover{transform:translateY(-6px)}
+.art{position:absolute;inset:0}
+.art svg{display:block;width:100%;height:100%}
+.cd::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,7,8,.82),rgba(6,7,8,0) 55%)}
+.cl{position:absolute;left:12px;right:10px;bottom:12px;z-index:1;display:flex;flex-direction:column;gap:2px}
+.cl small{font-size:10px;letter-spacing:.08em;color:rgba(242,239,233,.8)}
+.cl b{font:400 clamp(13px,1.25vw,21px)/1.02 var(--disp);letter-spacing:.01em;text-transform:uppercase;overflow-wrap:break-word}
+@keyframes slide{from{opacity:0;transform:translateX(46px)}to{opacity:1;transform:none}}
+
+/* controles */
+.ctl{grid-column:2;grid-row:2;display:flex;align-items:center;gap:14px;padding-right:var(--ml);margin-left:clamp(0px,2vw,32px)}
+.ar{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:transparent;border:1px solid rgba(242,239,233,.45)}
+.ar:hover{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.line{flex:1;height:1px;background:rgba(242,239,233,.28);margin:0 8px}
+.line i{display:block;height:3px;margin-top:-1px;width:0;background:var(--am);transition:width .6s ease}
+#cn{font:400 clamp(34px,4vw,56px)/1 var(--disp);letter-spacing:.02em;display:flex;align-items:baseline;gap:4px}
+#cn small{font:600 11px var(--sans);letter-spacing:.12em;color:var(--mu)}
+
+/* área de conteúdo */
+.wrap{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:clamp(32px,6vw,96px);padding:clamp(64px,10vh,120px) var(--ml) 40px}
+aside{align-self:start;position:sticky;top:84px}
+.lead{font-size:14px;color:var(--mu);margin:0 0 30px;max-width:34ch}
+.pct{font:400 clamp(64px,7vw,104px)/.9 var(--disp);letter-spacing:.01em;margin:0}
+.bar{height:1px;background:var(--ln);margin:14px 0 10px}.bar i{display:block;height:3px;margin-top:-1px;width:0;background:var(--am);transition:width .6s}
+#k{font-size:13px;color:var(--mu);margin:0}
+.nb{margin:34px 0 0;padding-top:18px;border-top:1px solid var(--ln)}
+.nb .lb,.lb{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);margin:0 0 8px}
+.nb h3{font:400 28px/1.05 var(--disp);letter-spacing:.02em;text-transform:uppercase;margin:0 0 6px}
+.m{color:var(--mu);font-size:13px;margin:2px 0 12px}
+.nb .m{margin-bottom:16px}
+.bt{display:inline-flex;align-items:center;min-height:36px;padding:0 18px;margin:0 8px 8px 0;border:1px solid rgba(242,239,233,.55);border-radius:999px;background:transparent;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--tx)}
+.bt:hover{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.bt.pr{background:var(--am);border-color:var(--am);color:#1a1405}
+.bt.pr:hover{background:var(--tx);border-color:var(--tx)}
+#warn{margin:22px 0 0;padding:12px 14px;border-left:2px solid var(--am);background:rgba(240,180,41,.08);font-size:13px;color:#f3dba0}
+.tools{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:13px;color:var(--mu);cursor:pointer}
+.tools input{width:18px;height:18px;accent-color:var(--am);margin:0}
+
+#ch{min-width:0}
+.ph{padding:0 0 clamp(40px,7vh,72px)}
+.pt{display:grid;grid-template-columns:auto 1fr auto;gap:0 22px;align-items:end;padding-bottom:18px;border-bottom:1px solid var(--tx)}
+.pn{font:400 clamp(44px,5vw,72px)/.85 var(--disp);color:var(--am)}
+.pt h2{font:400 clamp(34px,4.4vw,60px)/.92 var(--disp);letter-spacing:.015em;text-transform:uppercase;margin:0}
+.pt .m{margin:6px 0 0;max-width:52ch}
+.pc{font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mu);white-space:nowrap;padding-bottom:6px}
+.it{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:18px 0;border-bottom:1px solid var(--ln)}
+.it h3{font:600 16px/1.35 var(--sans);margin:0}.it .m{margin:3px 0 0}
+.it.s2 h3{color:var(--mu);font-weight:400;text-decoration:line-through;text-decoration-color:var(--am);text-decoration-thickness:1px}
+.ct{text-align:right}
+.sb{display:flex}
+.sb button{font-size:11px;letter-spacing:.04em;padding:7px 12px;margin-left:-1px;background:transparent;color:var(--mu);border:1px solid var(--ln)}
+.sb button:hover{color:var(--tx);border-color:rgba(242,239,233,.45);position:relative}
+.sb button[aria-pressed=true]{background:var(--tx);color:var(--bg);border-color:var(--tx);font-weight:600;position:relative}
+.sb button[data-s="2"][aria-pressed=true]{background:var(--am);border-color:var(--am);color:#1a1405}
+.lk{display:inline-block;margin-top:8px;font-size:12px;letter-spacing:.06em;text-underline-offset:4px;text-decoration-color:var(--ln)}
+.lk:hover{text-decoration-color:var(--am)}
+.rg{grid-column:1/-1;display:flex;gap:14px;align-items:center;font-size:12px;letter-spacing:.06em;color:var(--mu)}
+.rg input{flex:1;accent-color:var(--am)}
+.rg output{width:4ch;text-align:right;color:var(--tx)}
+
+footer{margin:0 var(--ml);padding:28px 0 calc(48px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--ln);color:var(--mu);font-size:12.5px;max-width:70ch}
+#msg{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--bg2);border:1px solid var(--am);border-radius:4px;padding:10px 16px;font-size:14px;max-width:calc(100% - 32px)}
+#msg:empty{display:none}
+
+@media(pointer:coarse),(max-width:760px){.sb button{min-height:44px}.bt,.lk,.ar{min-height:44px}.ar{min-width:44px}.rg input{height:44px}.site nav a,.site nav button{min-height:36px}}
+
+@media(max-width:980px){
+.wrap{grid-template-columns:1fr;gap:36px}
+aside{position:static}
+}
+@media(max-width:760px){
+.hero{grid-template-columns:minmax(0,1fr);grid-template-rows:1fr auto auto;padding:0 0 24px var(--ml)}
+.hc{grid-column:1;padding:130px var(--ml) 22px 0}
+.rail{grid-column:1;grid-row:2;margin:0;padding-bottom:20px;gap:10px}
+.cd{flex-basis:108px}
+.cl b{font-size:14px}
+.ctl{grid-column:1;grid-row:3;margin:0}
+.hero h2{font-size:clamp(44px,13vw,84px)}
+.site{position:absolute}
+.site.sol{position:fixed}
+.pt{grid-template-columns:auto 1fr;gap:0 16px}
+.pc{grid-column:1/-1;padding:12px 0 0}
+.it{grid-template-columns:1fr}.ct{text-align:left}
+.sb{width:100%}.sb button{flex:1;padding:0 4px;font-size:12.5px}
+.m{font-size:14px}
+}
+@media(max-width:420px){.site nav{gap:2px 18px}.site nav a,.site nav button{font-size:10px;letter-spacing:.14em}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.bgl svg{transform:none}}
+
+@media print{
+  body{background:#fff!important;color:#111!important;overflow:visible}
+  #top,.site,.hero,.tools,#warn,#msg,.ct,.ha,footer{display:none!important}
+  .wrap{display:block;padding:20px!important}
+  aside{position:static!important;margin-bottom:24px}
+  .pct{font-size:42px}
+  .bar{background:#ddd}.bar i{background:#333}
+  .ph{break-inside:avoid;padding-bottom:20px}
+  .pt{border-bottom:1px solid #555}
+  .pn{color:#111}
+  .m,.lead,.pc,#k{color:#555!important}
+  .it{break-inside:avoid;border-color:#ddd}
+  .it.s2 h3{color:#555!important}
+  a{color:#111;text-decoration:none}
+}
+</style></head><body>
+<div id="top" aria-hidden="true"><i id="pgi"></i></div>
+
+<div class="site" id="site">
+<a class="brand" href="#hero" aria-label="Trilha de Cibersegurança"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.2" ry="10"/><path d="M2 12h20"/></svg>Trilha</a>
+<nav aria-label="Principal">
+<a href="#lista">Cursos</a>
+<button id="ex" type="button">Backup</button>
+<button id="im" type="button">Restaurar</button>
+<button id="rs" type="button">Zerar progresso</button>
+</nav>
+</div>
+<input type="file" id="fi" accept="application/json,.json" hidden>
+
+<section class="hero" id="hero" aria-roledescription="carrossel" aria-label="Fases da trilha">
+<h1 class="sr">Trilha de Cibersegurança</h1>
+<div id="bg"></div><div class="scrim"></div>
+<div class="hc" id="hc" aria-live="polite">
+<p class="eb" id="hl"></p>
+<h2 id="ht"></h2>
+<p class="hp" id="hp"></p>
+<p class="hs" id="hs"></p>
+<div class="ha">
+<a class="go" id="go" href="#f0" aria-label="Ir para os itens da fase"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+<a class="ol" id="ol" href="#f0">Ver itens da fase</a>
+</div>
+</div>
+<div class="rail" id="rail"></div>
+<div class="ctl">
+<button class="ar" id="pv" type="button" aria-label="Fase anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+<button class="ar" id="nv" type="button" aria-label="Próxima fase"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+<div class="line" aria-hidden="true"><i id="li"></i></div>
+<div id="cn" aria-hidden="true"><span id="cnn">01</span><small id="cnt">/ 08</small></div>
+</div>
+</section>
+
+<div class="wrap" id="lista">
+<aside>
+<p class="lead">Meta: Red Team. Base sólida, prática diária e um writeup de tudo o que você concluir.</p>
+<p class="lb">Progresso geral</p>
+<p class="pct" id="pct">0%</p>
+<div class="bar"><i id="pgb"></i></div>
+<p id="k" aria-live="polite"></p>
+<div class="nb" id="next"></div>
+<div id="warn" hidden>Você tem mais de 2 itens em andamento. Foque em no máximo 2 cursos e 1 lab.</div>
+<label class="tools"><input type="checkbox" id="hd"> Ocultar concluídos</label>
+</aside>
+<main id="ch"></main>
+</div>
+
+<footer>Todo lab concluído vira um writeup. O progresso é salvo só neste navegador: cada pessoa tem o seu e ninguém altera o de outra. Para levar para outro aparelho, use Backup e Restaurar. Itens com “Buscar” abrem uma pesquisa pelo curso; quando achar o link direto, use o dele. <span>© 2026 Kaiky Yoshio Ono Marins. Todos os direitos reservados.</span></footer>
+<p id="msg" role="status"></p>
+
+<script>
+const PH=[["Linux e Base","Aprenda Linux do básico ao avançado com materiais gratuitos e prática no terminal."],["Fundamentos","Conceitos, criptografia e privacidade antes das ferramentas."],["Prática","Laboratórios e desafios. Todo lab vira um writeup."],["Web/AppSec","Como aplicações web quebram e como são testadas."],["Red Team","Pentest, engenharia reversa e ataque estruturado."],["Blue Team","Detecção e forense: entender o outro lado."],["Certificações","Provas que validam o que você já praticou."],["Extra","Complementos de IA para estudar mais rápido."]];
+const NA="Cisco NetAcad",NAU="https://www.netacad.com";
+const D=[
+[0,1,"OverTheWire Bandit · desafios de terminal (sem certificado)","OverTheWire","https://overthewire.org/wargames/bandit/"],
+[0,1,"Linux · Curso em Vídeo (40 horas; aulas grátis)","Curso em Vídeo","https://www.cursoemvideo.com/curso/linux/"],
+[0,1,"Linux Journey · fundamentos e linha de comando","Linux Journey / LabEx","https://labex.io/linuxjourney"],
+[0,2,"Introduction to Linux (LFS101) · gratuito com badge digital","The Linux Foundation","https://training.linuxfoundation.org/training/introduction-to-linux/"],
+[0,3,"Linux Unhatched · opcional (8 horas)","Cisco Networking Academy","https://www.netacad.com/pt/courses/linux-unhatched"],
+[0,2,"Guia Foca Linux · do iniciante ao avançado","Guia Foca","https://www.guiafoca.org/guiaonline/"],
+[1,1,"CS50’s Introduction to Cybersecurity","HarvardX","https://cs50.harvard.edu/cybersecurity"],
+[1,1,"Introduction to Cybersecurity",NA,NAU],
+[1,2,"Fundamentos de Cibersegurança","Udemy"],
+[1,2,"Cybersecurity","Eu Capacito"],
+[1,2,"Google Cybersecurity Professional Certificate","Coursera","https://www.coursera.org/professional-certificates/google-cybersecurity"],
+[1,2,"Entendendo Criptografia (partes 1 e 2)","Fábio Akita","y"],
+[1,2,"Chaves públicas vs chave privada","Mateus Müller","y"],
+[1,3,"Everything You Need to Know as a Cybersecurity Beginner","YouTube","y"],
+[1,3,"Fundamentos da LGPD","Escola Virtual.Gov","https://www.escolavirtual.gov.br"],
+[1,3,"Wiretaps to Big Data: Privacy and Surveillance","CornellX"],
+[2,1,"TryHackMe · trilha gratuita","TryHackMe","https://tryhackme.com"],
+[2,1,"picoCTF · desafios do básico","CyLab","https://picoctf.org"],
+[2,1,"PortSwigger Web Security Academy","PortSwigger","https://portswigger.net/web-security"],
+[2,2,"Hack The Box","Hack The Box","https://www.hackthebox.com"],
+[2,2,"Vulnhub","Vulnhub","https://www.vulnhub.com"],
+[2,2,"OWASP WebGoat","OWASP","https://owasp.org/www-project-webgoat"],
+[2,3,"Hacking Club","Hacking Club","https://hackingclub.com"],
+[3,1,"OWASP Top 10","OWASP","https://owasp.org/www-project-top-ten"],
+[3,2,"OWASP ZAP from Scratch","Udemy"],
+[3,2,"SAST, DAST e IAST","Guia Anônimo","y"],
+[3,3,"RASP no cenário de AppSec","Conviso"],
+[4,1,"Introdução ao Hacking e Pentest 2.0","Solyd"],
+[4,1,"Python para Pentesters","Curso"],
+[4,2,"Curso de Engenharia Reversa","Mente Binária","y"],
+[4,3,"Ethical Hacking C2 (EHC2)","C2 Go Hacking"],
+[5,2,"Get Started with Elastic Security (SIEM)","Elastic"],
+[5,2,"Forense Digital","Curso"],
+[6,1,"Analista de Cibersegurança Júnior",NA,NAU],
+[6,1,"CCNA",NA,NAU],
+[6,2,"Cisco NSE","Cisco"],
+[6,2,"CompTIA Security+","CompTIA"],
+[6,2,"Inglês técnico ou curso técnico SENAI","SENAI"],
+[6,3,"freeCodeCamp · caminho de TI","freeCodeCamp","https://www.freecodecamp.org"],
+[7,3,"Claude 101","Anthropic"],
+[7,3,"AI Fluency","Anthropic"],
+ [0,2,"Linux Essentials · opcional (70 horas; selo Cisco)","Cisco Networking Academy","https://www.netacad.com/courses/linux-essentials/"],
+ [0,2,"The Linux Command Line · livro gratuito (inglês)","William Shotts","https://linuxcommand.org/tlcl.php"],
+ [0,2,"Objetivos oficiais gratuitos da LPIC-1 · provas 101 e 102","Linux Professional Institute","https://www.lpi.org/pt-br/exam-101-102-objectives/"],
+ [0,3,"Documentação oficial do Ubuntu","Ubuntu","https://ubuntu.com/server/docs/"],
+ [0,3,"Arch Wiki · referência para nível avançado","Arch Linux","https://wiki.archlinux.org/"],
+ [0,2,"Projetos práticos: Nginx, SSH, firewall, Bash e cron","Laboratório Linux","https://ubuntu.com/server/docs"]];
+
+const K="trilha-ciber-v3",K2="trilha-ciber-v2",K1="trilha-ciber-v1",$=s=>document.querySelector(s);
+const h=(t,a,...k)=>{const e=document.createElement(t);Object.entries(a||{}).forEach(([n,v])=>e.setAttribute(n,v));e.append(...k);return e};
+// Identificador estável: alterar a ordem da lista não transfere o progresso para outro curso.
+const slug=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const key=i=>"f"+D[i][0]+"-"+slug(D[i][2]);
+const IDS=new Set(D.map((_,i)=>key(i)));
+const valid=x=>!!(x&&typeof x=="object"&&[0,1,2].includes(x.s));
+const cleanCurrent=o=>{const r={};if(o&&typeof o=="object"&&!Array.isArray(o))for(const [k,x] of Object.entries(o)){if(IDS.has(k)&&valid(x)){const p=Math.round(+x.p);r[k]={s:x.s,p:Number.isFinite(p)&&p>=0&&p<=100?p:0}}}return r};
+// Migra backups antigos por posição. Os seis itens antigos da fase Base foram substituídos,
+// então seu estado é descartado em vez de marcar cursos novos como concluídos por engano.
+const migrateLegacy=o=>{if(o&&typeof o=="object"&&!Array.isArray(o)&&o.d&&typeof o.d=="object")o=o.d;const r={};if(!o||typeof o!="object"||Array.isArray(o))return r;for(const [k,x] of Object.entries(o)){if(!valid(x))continue;let id=k;if(/^\d+$/.test(k)){const i=Number(k);if(i<6||i>=D.length)continue;id=key(i)}if(IDS.has(id)){const p=Math.round(+x.p);r[id]={s:x.s,p:Number.isFinite(p)&&p>=0&&p<=100?p:0}}}return r};
+let S={},H=false,rc=false,cur=0;
+try{const current=localStorage.getItem(K);if(current)S=cleanCurrent(JSON.parse(current));else{const previous=localStorage.getItem(K2)||localStorage.getItem(K1);if(previous){S=migrateLegacy(JSON.parse(previous));if(Object.keys(S).length)localStorage.setItem(K,JSON.stringify(S))}}}catch(e){}
+const say=t=>{const m=$("#msg");m.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>m.textContent="",5000)};
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){say("Não foi possível salvar neste navegador. Use Backup para não perder o progresso.")}};
+const g=i=>S[key(i)]||{s:0,p:0};
+const pc=i=>{const x=g(i);return x.s==2?100:x.s==1?x.p:0};
+const sr=d=>!d[4]||d[4]==="y";
+const url=d=>d[4]==="y"?"https://www.youtube.com/results?search_query="+encodeURIComponent(d[2]+" "+d[3]):d[4]||"https://www.google.com/search?q="+encodeURIComponent(d[2]+" "+d[3]);
+const ln=(d,c)=>h("a",{class:c,href:url(d),target:"_blank",rel:"noopener noreferrer"},sr(d)?"Buscar":"Abrir");
+const pad=n=>String(n).padStart(2,"0");
+const idx=j=>D.map((d,i)=>d[0]==j?i:-1).filter(i=>i>=0);
+
+/* ---------- cenas: cada fase tem a sua paisagem de cumes em camadas ---------- */
+// [céu topo, horizonte, cume distante, cume médio, cume próximo]
+const P=[["#16241c","#92a366","#4a6a42","#2c4832","#14251c"],
+["#16202e","#8fa6bb","#4d657e","#304559","#1a2a3a"],
+["#35261f","#e3a97d","#b27c57","#7d5038","#472c1f"],
+["#162124","#8fa9a6","#587472","#385150","#1d3030"],
+["#1d0e10","#cf5d3c","#7d3029","#4b1b1b","#290d10"],
+["#0b162d","#5588c8","#2f5392","#1d3763","#0e2040"],
+["#25221e","#cdbb9d","#908473","#5e5549","#35302a"],
+["#1c1430","#ad92d8","#634e92","#40306a","#231a3e"]];
+function ridge(seed,base,amp,fr){let s=seed;const r=()=>(s=s*16807%2147483647)/2147483647,p=[r()*6.3,r()*6.3,r()*6.3];let d="M0 900";for(let x=0;x<=1640;x+=32){const y=base-amp*(.5*(1-Math.abs(Math.sin(x*fr+p[0])))+.3*(1-Math.abs(Math.sin(x*fr*2.3+p[1])))+.2*Math.sin(x*fr*5.1+p[2]));d+="L"+x+" "+y.toFixed(0)}return d+"L1640 900Z"}
+function scene(j,u,card){
+const c=P[j],vb=card?(((j*211)%900)+" 0 600 900"):"0 0 1600 900",sx=340+((j*397)%900),sy=300+((j*53)%140);
+const L=[[520,230,.0058],[650,200,.0092],[790,170,.0135]];
+let s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="'+vb+'" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><defs>'+
+'<linearGradient id="s'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset=".62" stop-color="'+c[1]+'"/></linearGradient>'+
+'<radialGradient id="o'+u+'"><stop offset="0" stop-color="'+c[1]+'" stop-opacity=".7"/><stop offset="1" stop-color="'+c[1]+'" stop-opacity="0"/></radialGradient>'+
+'<linearGradient id="h'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c[1]+'" stop-opacity="0"/><stop offset="1" stop-color="'+c[1]+'" stop-opacity=".5"/></linearGradient></defs>'+
+'<rect width="1640" height="900" fill="url(#s'+u+')"/><circle cx="'+sx+'" cy="'+sy+'" r="360" fill="url(#o'+u+')"/>';
+L.forEach((l,i)=>{s+='<path d="'+ridge(j*97+i*13+7,l[0],l[1],l[2])+'" fill="'+c[2+i]+'"/>';if(i<2)s+='<rect y="'+(l[0]-60)+'" width="1640" height="320" fill="url(#h'+u+')"/>'});
+return s+"</svg>"}
+
+/* ---------- resumo ---------- */
+function resumo(){
+const n=D.length,tot=D.reduce((a,_,i)=>a+pc(i),0)/n,done=D.filter((_,i)=>g(i).s==2).length,doing=D.filter((_,i)=>g(i).s==1).length;
+$("#pgi").style.width=tot+"%";$("#pgb").style.width=tot+"%";
+$("#pct").textContent=Math.round(tot)+"%";
+$("#k").textContent=done+" de "+n+" concluídos, "+doing+" em andamento.";
+$("#warn").hidden=doing<=2;
+const ordered=PH.flatMap((_,j)=>idx(j));const nx=ordered.find(i=>g(i).s!=2)??-1,b=$("#next");b.replaceChildren();
+if(nx<0){b.append(h("p",{class:"lb"},"Trilha completa"),h("h3",0,"Agora é escrever writeups."));heroStats();return}
+const x=D[nx];
+b.append(h("p",{class:"lb"},"Próximo passo"),h("h3",0,x[2]),h("p",{class:"m"},PH[x[0]][0]+", "+x[3]),ln(x,"bt"));
+if(g(nx).s!=1)b.append(h("button",{class:"bt pr",type:"button","data-i":nx,"data-s":1},"Começar"));
+heroStats()}
+
+function heroStats(){const ix=idx(cur),dn=ix.filter(i=>g(i).s==2).length;$("#hs").textContent=dn+" de "+ix.length+" concluídos nesta fase"}
+
+/* ---------- lista de fases ---------- */
+function rows(){
+const root=$("#ch");root.replaceChildren();
+// Mostra somente a fase escolhida no carrossel superior; as demais não ficam abaixo dela.
+const j=cur,p=PH[j],ix=idx(j),dn=ix.filter(i=>g(i).s==2).length;
+const sec=h("section",{id:"f"+j,class:"ph"},h("div",{class:"pt"},h("span",{class:"pn","aria-hidden":"true"},pad(j+1)),h("div",0,h("h2",0,p[0]),h("p",{class:"m"},p[1])),h("span",{class:"pc"},dn+" de "+ix.length+" concluídos")));
+ix.forEach(i=>{
+const d=D[i],x=g(i);if(H&&x.s==2)return;
+sec.append(h("div",{class:"it s"+x.s},
+h("div",0,h("h3",0,d[2]),h("p",{class:"m"},d[3]+", prioridade "+["","alta","média","baixa"][d[1]])),
+h("div",{class:"ct"},h("div",{class:"sb",role:"group","aria-label":"Status de "+d[2]},...["Quero fazer","Fazendo","Concluído"].map((t,k)=>h("button",{type:"button","data-i":i,"data-s":k,"aria-pressed":x.s==k},t))),ln(d,"lk")),
+...(x.s==1?[h("label",{class:"rg"},"Progresso",h("input",{type:"range",min:0,max:100,step:5,value:x.p,"aria-label":"Progresso de "+d[2],"data-i":i}),h("output",0,x.p+"%"))]:[])))});
+root.append(sec)}
+
+/* ---------- hero ---------- */
+const bg=$("#bg");
+PH.forEach((_,j)=>{const l=h("div",{class:"bgl"});l.innerHTML=scene(j,"b"+j,false);bg.append(l)});
+function hero(){
+const p=PH[cur];
+$("#hl").textContent="Trilha de Cibersegurança · Fase "+pad(cur+1)+" de "+pad(PH.length);
+$("#ht").textContent=p[0];$("#hp").textContent=p[1];
+$("#go").href=$("#ol").href="#f"+cur;
+$("#cnn").textContent=pad(cur+1);$("#cnt").textContent="/ "+pad(PH.length);
+$("#li").style.width=((cur+1)/PH.length*100)+"%";
+document.querySelectorAll(".bgl").forEach((e,i)=>e.classList.toggle("on",i==cur));
+heroStats();
+const c=$("#hc");c.classList.remove("sw");void c.offsetWidth;c.classList.add("sw");
+const r=$("#rail");r.replaceChildren();
+for(let k=1;k<PH.length;k++){const j=(cur+k)%PH.length,b=h("button",{type:"button",class:"cd","data-j":j,"aria-label":"Ir para a fase "+pad(j+1)+": "+PH[j][0]}),a=h("span",{class:"art"});
+b.style.setProperty("--d",(k*55)+"ms");a.innerHTML=scene(j,"c"+j,true);
+b.append(a,h("span",{class:"cl"},h("small",0,"Fase "+pad(j+1)),h("b",0,PH[j][0])));r.append(b)}}
+const go=j=>{cur=(j+PH.length)%PH.length;hero();rows()};
+$("#pv").onclick=()=>go(cur-1);$("#nv").onclick=()=>go(cur+1);
+$("#rail").addEventListener("click",e=>{const b=e.target.closest(".cd");if(b)go(+b.dataset.j)});
+addEventListener("keydown",e=>{if(e.target.closest("input,textarea,select")||e.altKey||e.ctrlKey||e.metaKey||scrollY>innerHeight*.6)return;if(e.key=="ArrowRight")go(cur+1);else if(e.key=="ArrowLeft")go(cur-1)});
+let tx=null;const hr=$("#hero");
+hr.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});
+hr.addEventListener("touchend",e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(cur+(dx<0?1:-1))},{passive:true});
+
+/* ---------- ações ---------- */
+document.addEventListener("click",e=>{
+const b=e.target.closest("button[data-s]");
+if(b){const i=+b.dataset.i,s=+b.dataset.s;S[key(i)]={s,p:g(i).p};save();resumo();rows();const f=document.querySelector('button[data-i="'+i+'"][data-s="'+s+'"]');if(f)f.focus()}
+});
+document.addEventListener("input",e=>{
+if(e.target.type=="range"){const i=+e.target.dataset.i;S[key(i)]={s:1,p:+e.target.value};save();e.target.nextElementSibling.textContent=e.target.value+"%";resumo()}
+});
+$("#hd").onchange=e=>{H=e.target.checked;rows()};
+$("#rs").onclick=e=>{const b=e.target;
+if(!rc){rc=true;b.textContent="Clique de novo para zerar";setTimeout(()=>{rc=false;b.textContent="Zerar progresso"},3000)}
+else{rc=false;S={};save();b.textContent="Zerar progresso";resumo();rows()}};
+$("#ex").onclick=()=>{
+const u=URL.createObjectURL(new Blob([JSON.stringify({v:3,d:S})],{type:"application/json"})),a=h("a",{href:u,download:"trilha-progresso.json"});
+document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);
+say("Backup salvo. Guarde o arquivo para restaurar em outro aparelho.")};
+$("#im").onclick=()=>$("#fi").click();
+$("#fi").onchange=e=>{
+const f=e.target.files[0];e.target.value="";if(!f)return;
+if(f.size>65536)return say("Arquivo grande demais para ser um backup da trilha.");
+const r=new FileReader();
+r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||typeof o!="object"||Array.isArray(o)||!o.d||typeof o.d!="object"||Array.isArray(o.d))throw 0;if(o.v===3)S=cleanCurrent(o.d);else if(o.v===2)S=migrateLegacy(o);else throw 0;save();resumo();rows();say("Progresso restaurado.")}catch(_){say("Backup inválido. Use um arquivo gerado pelo botão Backup.")}};
+r.readAsText(f)};
+
+/* cabeçalho sólido após o hero */
+const st=$("#site");let tk=0;
+const sc=()=>{tk=0;st.classList.toggle("sol",scrollY>hr.offsetHeight-90)};
+addEventListener("scroll",()=>{tk||(tk=requestAnimationFrame(sc))},{passive:true});addEventListener("resize",sc);
+
+hero();resumo();rows();sc();
+</script></body></html>
