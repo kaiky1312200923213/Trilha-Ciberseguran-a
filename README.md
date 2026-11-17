@@ -1,7 +1,7 @@
 # Trilha de Cibersegurança — Roadmap Red Team
 
 **Autor:** Kaiky Yoshio Ono Marins  
-**Site:** [Acessar a Trilha de Cibersegurança](https://trilha-ciberseguranca-red-team-trilha-ciberseguranca.vercel.app/)
+**Site oficial:** [kaikysec.vercel.app](https://kaikysec.vercel.app/)
 
 ## Sobre o projeto
 
@@ -32,7 +32,7 @@ A trilha reúne conteúdos, cursos gratuitos, laboratórios e etapas de aprendiz
 
 ## Publicação
 
-O projeto está hospedado na Vercel. Com a integração Git habilitada, atualizações enviadas à branch principal podem gerar novos deploys automaticamente.
+O projeto está publicado em [kaikysec.vercel.app](https://kaikysec.vercel.app/). Com a integração Git habilitada, atualizações enviadas à branch principal podem gerar novos deploys automaticamente.
 
 ## Direitos autorais
 
