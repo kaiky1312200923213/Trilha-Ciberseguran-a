@@ -1,404 +1,269 @@
-<!DOCTYPE html>
-<html lang="pt-BR"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Trilha de estudos com cursos, laboratórios e acompanhamento de progresso.">
-<meta name="theme-color" content="#0c0d0e">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
-<meta name="referrer" content="no-referrer">
-<title>Trilha de Cibersegurança</title>
-<style>
-:root{
---bg:#0c0d0e;--bg2:#131517;--tx:#f2efe9;--mu:#a29e96;--ln:rgba(242,239,233,.16);--am:#f0b429;
---disp:"Bebas Neue","Oswald","Haettenschweiler","Arial Narrow Bold","Impact",sans-serif-condensed,sans-serif;
---sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
---ml:clamp(20px,6vw,96px);color-scheme:dark}
-*{box-sizing:border-box}
-@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-html{scroll-padding-top:72px;-webkit-text-size-adjust:100%}
-[hidden]{display:none!important}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 var(--sans);overflow-x:hidden}
-a{color:inherit}
-button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-:focus-visible{outline:2px solid var(--am);outline-offset:3px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfólio de Kaiky Yoshio Ono Marins: desenvolvimento web, Python, IA aplicada e projetos de tecnologia.">
+  <meta name="theme-color" content="#0b1220">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kaiky Yoshio Ono Marins | Portfólio">
+  <meta property="og:description" content="Projetos práticos em desenvolvimento web, Python e inteligência artificial aplicada.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Kaiky Yoshio Ono Marins | Portfólio</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1220;--bg2:#101b2d;--card:#132139;--ink:#f3f6fc;--muted:#aab8cc;--line:rgba(214,228,248,.14);--mint:#79e0c1;--blue:#9eb8ff;--max:1120px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:inherit}
+    a:focus-visible{outline:3px solid var(--mint);outline-offset:4px;border-radius:4px}
+    .skip{position:absolute;left:-999px;top:8px;background:var(--mint);color:#06120f;padding:8px 12px;z-index:30}
+    .skip:focus{left:12px}
+    .container{width:min(calc(100% - 40px),var(--max));margin-inline:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{text-decoration:none;font-weight:800;letter-spacing:.02em;display:flex;align-items:center;gap:11px}
+    .brand-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:10px;background:var(--mint);color:#071713;font-size:15px;font-weight:900}
+    nav{display:flex;align-items:center;gap:24px}
+    nav a{font-size:13px;color:var(--muted);text-decoration:none}
+    nav a:hover{color:var(--mint)}
+    .nav-cta{border:1px solid rgba(121,224,193,.5);padding:8px 14px;border-radius:999px;color:var(--mint)}
+    .hero{position:relative;overflow:hidden;padding:100px 0 88px;border-bottom:1px solid var(--line)}
+    .hero:before{content:"";position:absolute;width:520px;height:520px;right:-130px;top:-210px;background:radial-gradient(circle,rgba(121,224,193,.16),transparent 68%);pointer-events:none}
+    .hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 300px;align-items:center;gap:60px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--mint);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px rgba(121,224,193,.12)}
+    h1{font-size:clamp(42px,7vw,76px);line-height:1.03;letter-spacing:-.055em;margin:22px 0 22px;max-width:800px}
+    h1 span{color:var(--mint)}
+    .intro{font-size:clamp(17px,2vw,19px);color:var(--muted);max-width:680px;margin:0}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 19px;border-radius:10px;text-decoration:none;font-weight:750;font-size:14px;border:1px solid var(--line);transition:transform .2s,border-color .2s,background .2s}
+    .button:hover{transform:translateY(-2px);border-color:var(--mint)}
+    .button.primary{background:var(--mint);color:#071713;border-color:var(--mint)}
+    .button.secondary{background:rgba(255,255,255,.025);color:var(--ink)}
+    .profile-card{border:1px solid var(--line);border-radius:18px;padding:25px;background:linear-gradient(145deg,rgba(158,184,255,.09),rgba(121,224,193,.06));box-shadow:0 20px 80px rgba(0,0,0,.18)}
+    .monogram{width:66px;height:66px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(145deg,var(--mint),var(--blue));color:#091521;font-size:26px;font-weight:900;letter-spacing:-.06em}
+    .profile-card h2{font-size:18px;margin:19px 0 5px}
+    .profile-card p{margin:0;color:var(--muted);font-size:14px}
+    .profile-lines{display:grid;gap:11px;margin-top:23px;padding-top:18px;border-top:1px solid var(--line)}
+    .profile-lines span{color:var(--muted);font-size:12px}
+    .profile-lines b{display:block;color:var(--ink);font-size:14px;font-weight:650}
+    section{padding:82px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:30px}
+    .kicker{font-size:11px;color:var(--mint);font-weight:850;letter-spacing:.17em;text-transform:uppercase;margin:0 0 8px}
+    h2.section-title{font-size:clamp(30px,4vw,43px);line-height:1.12;letter-spacing:-.04em;margin:0}
+    .section-lead{color:var(--muted);max-width:510px;margin:0;font-size:14px}
+    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px}
+    .about-copy p{color:var(--muted);margin:0 0 16px}
+    .principles{display:grid;gap:12px}
+    .principle{padding:17px 18px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.02)}
+    .principle b{display:block;margin-bottom:3px;font-size:14px}
+    .principle span{display:block;color:var(--muted);font-size:13px}
+    .projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .project{min-width:0;padding:24px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(150deg,rgba(255,255,255,.035),rgba(255,255,255,.012));display:flex;flex-direction:column;min-height:100%}
+    .project:hover{border-color:rgba(121,224,193,.46)}
+    .project-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:19px}
+    .project-type{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--mint);font-weight:800}
+    .status{font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 9px;white-space:nowrap}
+    .project h3{font-size:22px;line-height:1.2;letter-spacing:-.025em;margin:0 0 10px}
+    .project p{font-size:14px;color:var(--muted);margin:0 0 14px}
+    .project ul{padding-left:18px;margin:0 0 20px;color:var(--muted);font-size:13px}
+    .project li{margin:5px 0}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:12px}
+    .tag{font-size:11px;color:#d9e5f8;background:rgba(158,184,255,.09);border:1px solid rgba(158,184,255,.15);border-radius:6px;padding:4px 8px}
+    .project-links{display:flex;gap:16px;margin-top:20px;padding-top:16px;border-top:1px solid var(--line)}
+    .project-links a{font-size:13px;text-decoration:none;color:var(--mint);font-weight:750}
+    .project-links a:hover{text-decoration:underline;text-underline-offset:4px}
+    .more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .more-item{padding:17px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.018)}
+    .more-item a{font-weight:750;font-size:14px;text-decoration:none}
+    .more-item a:hover{color:var(--mint)}
+    .more-item p{font-size:12px;color:var(--muted);margin:6px 0 0}
+    .skills-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .skill-group{padding:20px;border:1px solid var(--line);border-radius:14px}
+    .skill-group h3{font-size:14px;margin:0 0 12px}
+    .skill-group p{font-size:13px;color:var(--muted);margin:0}
+    .method{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .step{border-top:2px solid var(--mint);padding:16px 2px 0}
+    .step b{display:block;font-size:15px;margin-bottom:6px}
+    .step p{font-size:13px;color:var(--muted);margin:0}
+    .contact{background:radial-gradient(ellipse at 90% 0%,rgba(121,224,193,.09),transparent 50%)}
+    .contact-box{display:flex;align-items:center;justify-content:space-between;gap:28px;border:1px solid var(--line);border-radius:18px;padding:30px;background:rgba(255,255,255,.025)}
+    .contact-box p{max-width:570px;color:var(--muted);margin:9px 0 0;font-size:14px}
+    footer{padding:27px 0 36px;color:var(--muted);font-size:12px}
+    footer .foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    footer a{color:var(--mint);text-decoration:none}
+    @media(max-width:850px){.hero-grid{grid-template-columns:1fr 240px;gap:28px}.skills-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.more-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-grid{gap:28px}}
+    @media(max-width:650px){.container{width:min(calc(100% - 32px),var(--max))}.nav{min-height:68px}nav{gap:13px}nav a{font-size:11px}nav a:nth-child(2),nav a:nth-child(3){display:none}.nav-cta{display:inline-flex!important}.hero{padding:72px 0 65px}.hero-grid{grid-template-columns:1fr}.profile-card{display:none}section{padding:62px 0}.section-head{align-items:start;flex-direction:column;gap:10px}.about-grid{grid-template-columns:1fr}.projects{grid-template-columns:1fr}.more-grid{grid-template-columns:1fr 1fr}.contact-box{align-items:flex-start;flex-direction:column}.method{grid-template-columns:1fr;gap:23px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio" aria-label="Página inicial">
+      <span class="brand-mark">K</span><span>Kaiky Yoshio</span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="#sobre">Sobre</a><a href="#projetos">Projetos</a><a href="#tecnologias">Tecnologias</a><a href="#contato" class="nav-cta">Contato</a>
+    </nav>
+  </div>
+</header>
 
-/* linha de progresso geral */
-#top{position:fixed;top:0;left:0;right:0;height:2px;z-index:20;background:transparent}
-#top i{display:block;height:100%;width:0;background:var(--am);transition:width .6s}
+<main id="conteudo">
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Portfólio · Desenvolvimento de software</div>
+        <h1>Olá, eu sou <span>Kaiky.</span><br>Transformo ideias em projetos de tecnologia.</h1>
+        <p class="intro">Sou desenvolvedor em formação e gosto de construir aplicações práticas com Python, inteligência artificial e tecnologias web. Aqui você encontra projetos, decisões técnicas e demonstrações do que venho desenvolvendo.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projetos">Conhecer projetos</a>
+          <a class="button secondary" href="https://github.com/kaiky1312200923213" target="_blank" rel="noopener noreferrer">Ver meu GitHub ↗</a>
+        </div>
+      </div>
+      <aside class="profile-card" aria-label="Resumo profissional">
+        <div class="monogram" aria-hidden="true">KO</div>
+        <h2>Kaiky Yoshio Ono Marins</h2>
+        <p>Desenvolvimento de software · IA aplicada · Web</p>
+        <div class="profile-lines">
+          <div><span>Foco atual</span><b>Python, IA e aplicações web</b></div>
+          <div><span>Objetivo</span><b>Estágio ou oportunidade júnior</b></div>
+          <div><span>Trabalho apresentado</span><b>Projetos e código no GitHub</b></div>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-/* cabeçalho */
-.site{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px 28px;flex-wrap:wrap;padding:calc(20px + env(safe-area-inset-top,0px)) var(--ml) 16px;transition:background .3s,padding .3s}
-.site.sol{background:rgba(12,13,14,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:12px;border-bottom:1px solid var(--ln)}
-.brand{display:flex;align-items:center;gap:10px;font:700 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none}
-.brand svg{width:18px;height:18px;stroke:var(--tx);fill:none;stroke-width:1.2}
-.site nav{display:flex;align-items:center;gap:6px 26px;flex-wrap:wrap}
-.site nav a,.site nav button{background:none;border:0;padding:6px 0;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--tx);opacity:.78;border-bottom:1px solid transparent}
-.site nav a:hover,.site nav button:hover{opacity:1;border-bottom-color:var(--am)}
-.site nav a[aria-current]{opacity:1;border-bottom-color:var(--am)}
+  <section id="sobre">
+    <div class="container">
+      <div class="section-head">
+        <div><p class="kicker">01 · Apresentação</p><h2 class="section-title">Sobre mim</h2></div>
+        <p class="section-lead">Uma apresentação direta, com foco no que consigo demonstrar por meio dos projetos.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>Meu nome é Kaiky Yoshio Ono Marins. Tenho desenvolvido projetos que conectam programação a necessidades do dia a dia: organizar informações, facilitar consultas, automatizar tarefas e criar experiências web.</p>
+          <p>Minha prática inclui aplicações em Python e Streamlit, integração com modelos de inteligência artificial, recuperação de informações em documentos e desenvolvimento de interfaces web com JavaScript e TypeScript.</p>
+          <p>Também mantenho uma trilha de estudos em cibersegurança. Procuro evoluir com projetos que possam ser testados, documentados e explicados — não apenas com listas de tecnologias.</p>
+        </div>
+        <div class="principles">
+          <div class="principle"><b>Aprender construindo</b><span>Transformar conceitos em aplicações que possam ser exploradas.</span></div>
+          <div class="principle"><b>Explicar as escolhas</b><span>Documentar objetivo, tecnologias, funcionamento e limitações.</span></div>
+          <div class="principle"><b>Melhorar com feedback</b><span>Revisar interfaces, código e segurança conforme o projeto evolui.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-/* hero */
-.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);grid-template-rows:1fr auto;padding:0 0 clamp(28px,5vh,56px) var(--ml);isolation:isolate;touch-action:pan-y}
-#bg,.scrim{position:absolute;inset:0;z-index:-1}
-.bgl{position:absolute;inset:0;opacity:0;transition:opacity .9s ease}
-.bgl.on{opacity:1}
-.bgl svg{display:block;width:100%;height:100%;transform:scale(1.07);transition:transform 7s ease-out}
-.bgl.on svg{transform:none}
-.scrim{background:linear-gradient(90deg,rgba(8,9,10,.74),rgba(8,9,10,.12) 58%,rgba(8,9,10,.22)),linear-gradient(0deg,rgba(8,9,10,.72),rgba(8,9,10,0) 42%),linear-gradient(180deg,rgba(8,9,10,.5),rgba(8,9,10,0) 22%)}
-.hc{grid-column:1;grid-row:1;align-self:end;padding:130px 24px 34px 0;max-width:640px}
-.eb{display:flex;flex-direction:column;gap:12px;margin:0 0 14px;font-size:13px;letter-spacing:.04em;color:var(--tx);opacity:.9}
-.eb::before{content:"";width:18px;height:2px;background:var(--tx)}
-.hero h2{font:400 clamp(44px,5vw,100px)/.92 var(--disp);letter-spacing:.012em;text-transform:uppercase;margin:0 0 20px;overflow-wrap:anywhere;text-shadow:0 2px 30px rgba(0,0,0,.35)}
-.hp{max-width:44ch;margin:0 0 6px;font-size:14px;color:rgba(242,239,233,.86)}
-.hs{margin:0 0 22px;font-size:12px;letter-spacing:.06em;color:var(--mu)}
-.ha{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.go{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--am);color:#1a1405;text-decoration:none}
-.go svg,.ar svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.ol{display:inline-flex;align-items:center;min-height:34px;padding:0 20px;border:1px solid rgba(242,239,233,.55);border-radius:999px;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
-.ol:hover{background:var(--tx);color:var(--bg);border-color:var(--tx)}
-.sw .eb,.sw h2,.sw .hp,.sw .hs,.sw .ha{animation:up .7s cubic-bezier(.2,.8,.2,1) both}
-.sw h2{animation-delay:.06s}.sw .hp{animation-delay:.12s}.sw .hs{animation-delay:.16s}.sw .ha{animation-delay:.2s}
-@keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  <section id="projetos">
+    <div class="container">
+      <div class="section-head">
+        <div><p class="kicker">02 · Trabalho selecionado</p><h2 class="section-title">Projetos em destaque</h2></div>
+        <p class="section-lead">Seleção de projetos que demonstram desenvolvimento web, automação e IA aplicada. Cada repositório contém mais detalhes técnicos.</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project-top"><span class="project-type">Aplicação web · Firebase</span><span class="status">Publicado</span></div>
+          <h3>Bazar da Sônia — Catálogo online</h3>
+          <p>Site de catálogo com área pública para consulta de produtos e painel administrativo separado para gestão do conteúdo.</p>
+          <ul><li>Integração com Cloud Firestore.</li><li>Separação entre experiência pública e administração.</li><li>Regras do banco e orientações de operação documentadas.</li></ul>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Firestore</span></div>
+          <div class="project-links"><a href="https://bazarsonia.netlify.app/" target="_blank" rel="noopener noreferrer">Abrir demonstração ↗</a><a href="https://github.com/kaiky1312200923213/Bazar-Sonia" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
+        </article>
 
-/* cards laterais */
-.rail{grid-column:2;grid-row:1;align-self:end;display:flex;gap:16px;overflow:hidden;padding:0 0 34px;margin-left:clamp(0px,2vw,32px)}
-.cd{position:relative;flex:0 0 clamp(120px,12.5vw,190px);aspect-ratio:3/4.1;border:1px solid rgba(255,255,255,.22);border-radius:6px;overflow:hidden;padding:0;background:#222;text-align:left;box-shadow:0 18px 40px -16px rgba(0,0,0,.6);animation:slide .7s cubic-bezier(.2,.8,.2,1) var(--d,0s) both;transition:transform .35s}
-.cd:hover{transform:translateY(-6px)}
-.art{position:absolute;inset:0}
-.art svg{display:block;width:100%;height:100%}
-.cd::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,7,8,.82),rgba(6,7,8,0) 55%)}
-.cl{position:absolute;left:12px;right:10px;bottom:12px;z-index:1;display:flex;flex-direction:column;gap:2px}
-.cl small{font-size:10px;letter-spacing:.08em;color:rgba(242,239,233,.8)}
-.cl b{font:400 clamp(13px,1.25vw,21px)/1.02 var(--disp);letter-spacing:.01em;text-transform:uppercase;overflow-wrap:break-word}
-@keyframes slide{from{opacity:0;transform:translateX(46px)}to{opacity:1;transform:none}}
+        <article class="project">
+          <div class="project-top"><span class="project-type">IA aplicada · RAG</span><span class="status">Protótipo funcional</span></div>
+          <h3>Assistente de manuais em PDF</h3>
+          <p>Aplicação para fazer perguntas sobre um manual em PDF. O conteúdo é extraído, dividido em trechos, indexado e recuperado para contextualizar as respostas do modelo.</p>
+          <ul><li>Busca semântica com FAISS.</li><li>Embeddings e modelo de chat via NVIDIA NIM.</li><li>Respostas apoiadas nos trechos recuperados do documento.</li></ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">LangChain</span><span class="tag">FAISS</span><span class="tag">NVIDIA NIM</span></div>
+          <div class="project-links"><a href="https://github.com/kaiky1312200923213/ChatBot-Nvidia" target="_blank" rel="noopener noreferrer">Código e instruções ↗</a></div>
+        </article>
 
-/* controles */
-.ctl{grid-column:2;grid-row:2;display:flex;align-items:center;gap:14px;padding-right:var(--ml);margin-left:clamp(0px,2vw,32px)}
-.ar{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:transparent;border:1px solid rgba(242,239,233,.45)}
-.ar:hover{background:var(--tx);color:var(--bg);border-color:var(--tx)}
-.line{flex:1;height:1px;background:rgba(242,239,233,.28);margin:0 8px}
-.line i{display:block;height:3px;margin-top:-1px;width:0;background:var(--am);transition:width .6s ease}
-#cn{font:400 clamp(34px,4vw,56px)/1 var(--disp);letter-spacing:.02em;display:flex;align-items:baseline;gap:4px}
-#cn small{font:600 11px var(--sans);letter-spacing:.12em;color:var(--mu)}
+        <article class="project">
+          <div class="project-top"><span class="project-type">Automação · Help Desk</span><span class="status">Projeto de estudo</span></div>
+          <h3>Bot Supervisor de TI</h3>
+          <p>Assistente para triagem de solicitações de suporte. A aplicação recebe a descrição do problema e organiza informações como prioridade e departamento para apoiar o fluxo de chamados.</p>
+          <ul><li>Interface conversacional em Streamlit.</li><li>Classificação e estruturação da solicitação.</li><li>Configuração do provedor de IA por ambiente.</li></ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Pandas</span><span class="tag">IA</span></div>
+          <div class="project-links"><a href="https://github.com/kaiky1312200923213/sabado-ai-901-senai" target="_blank" rel="noopener noreferrer">Código e instruções ↗</a></div>
+        </article>
 
-/* área de conteúdo */
-.wrap{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:clamp(32px,6vw,96px);padding:clamp(64px,10vh,120px) var(--ml) 40px}
-aside{align-self:start;position:sticky;top:84px}
-.lead{font-size:14px;color:var(--mu);margin:0 0 30px;max-width:34ch}
-.pct{font:400 clamp(64px,7vw,104px)/.9 var(--disp);letter-spacing:.01em;margin:0}
-.bar{height:1px;background:var(--ln);margin:14px 0 10px}.bar i{display:block;height:3px;margin-top:-1px;width:0;background:var(--am);transition:width .6s}
-#k{font-size:13px;color:var(--mu);margin:0}
-.nb{margin:34px 0 0;padding-top:18px;border-top:1px solid var(--ln)}
-.nb .lb,.lb{font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);margin:0 0 8px}
-.nb h3{font:400 28px/1.05 var(--disp);letter-spacing:.02em;text-transform:uppercase;margin:0 0 6px}
-.m{color:var(--mu);font-size:13px;margin:2px 0 12px}
-.nb .m{margin-bottom:16px}
-.bt{display:inline-flex;align-items:center;min-height:36px;padding:0 18px;margin:0 8px 8px 0;border:1px solid rgba(242,239,233,.55);border-radius:999px;background:transparent;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;color:var(--tx)}
-.bt:hover{background:var(--tx);color:var(--bg);border-color:var(--tx)}
-.bt.pr{background:var(--am);border-color:var(--am);color:#1a1405}
-.bt.pr:hover{background:var(--tx);border-color:var(--tx)}
-#warn{margin:22px 0 0;padding:12px 14px;border-left:2px solid var(--am);background:rgba(240,180,41,.08);font-size:13px;color:#f3dba0}
-.tools{display:flex;align-items:center;gap:10px;margin-top:26px;font-size:13px;color:var(--mu);cursor:pointer}
-.tools input{width:18px;height:18px;accent-color:var(--am);margin:0}
+        <article class="project">
+          <div class="project-top"><span class="project-type">Desenvolvimento web · E-commerce</span><span class="status">Em desenvolvimento</span></div>
+          <h3>AURA Parfum — Loja virtual</h3>
+          <p>Projeto de e-commerce com interface web e integração com Supabase. O repositório documenta como configurar o ambiente, iniciar a aplicação e gerar a versão de produção.</p>
+          <ul><li>Front-end com Vite e TypeScript.</li><li>Estilização com Tailwind CSS.</li><li>Integração do cliente Supabase e configuração de deploy.</li></ul>
+          <div class="tags"><span class="tag">Vite</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span><span class="tag">Supabase</span></div>
+          <div class="project-links"><a href="https://auraparfum.netlify.app/" target="_blank" rel="noopener noreferrer">Abrir demonstração ↗</a><a href="https://github.com/kaiky1312200923213/aura-parfum-shop" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
+        </article>
 
-#ch{min-width:0}
-.ph{padding:0 0 clamp(40px,7vh,72px)}
-.pt{display:grid;grid-template-columns:auto 1fr auto;gap:0 22px;align-items:end;padding-bottom:18px;border-bottom:1px solid var(--tx)}
-.pn{font:400 clamp(44px,5vw,72px)/.85 var(--disp);color:var(--am)}
-.pt h2{font:400 clamp(34px,4.4vw,60px)/.92 var(--disp);letter-spacing:.015em;text-transform:uppercase;margin:0}
-.pt .m{margin:6px 0 0;max-width:52ch}
-.pc{font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--mu);white-space:nowrap;padding-bottom:6px}
-.it{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:18px 0;border-bottom:1px solid var(--ln)}
-.it h3{font:600 16px/1.35 var(--sans);margin:0}.it .m{margin:3px 0 0}
-.it.s2 h3{color:var(--mu);font-weight:400;text-decoration:line-through;text-decoration-color:var(--am);text-decoration-thickness:1px}
-.ct{text-align:right}
-.sb{display:flex}
-.sb button{font-size:11px;letter-spacing:.04em;padding:7px 12px;margin-left:-1px;background:transparent;color:var(--mu);border:1px solid var(--ln)}
-.sb button:hover{color:var(--tx);border-color:rgba(242,239,233,.45);position:relative}
-.sb button[aria-pressed=true]{background:var(--tx);color:var(--bg);border-color:var(--tx);font-weight:600;position:relative}
-.sb button[data-s="2"][aria-pressed=true]{background:var(--am);border-color:var(--am);color:#1a1405}
-.lk{display:inline-block;margin-top:8px;font-size:12px;letter-spacing:.06em;text-underline-offset:4px;text-decoration-color:var(--ln)}
-.lk:hover{text-decoration-color:var(--am)}
-.rg{grid-column:1/-1;display:flex;gap:14px;align-items:center;font-size:12px;letter-spacing:.06em;color:var(--mu)}
-.rg input{flex:1;accent-color:var(--am)}
-.rg output{width:4ch;text-align:right;color:var(--tx)}
+        <article class="project">
+          <div class="project-top"><span class="project-type">Ferramenta educacional · Cibersegurança</span><span class="status">Publicado</span></div>
+          <h3>Trilha de Cibersegurança</h3>
+          <p>Aplicação para organizar uma jornada de estudos por áreas, acompanhar o progresso e levar os dados de estudo para outro dispositivo.</p>
+          <ul><li>Oito fases de estudo com conteúdo organizado.</li><li>Progresso salvo localmente no navegador.</li><li>Backup e restauração do progresso em JSON.</li></ul>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Vercel</span></div>
+          <div class="project-links"><a href="/trilha.html">Abrir aplicação ↗</a><a href="https://github.com/kaiky1312200923213/Trilha-Ciberseguran-a" target="_blank" rel="noopener noreferrer">Código ↗</a></div>
+        </article>
 
-footer{margin:0 var(--ml);padding:28px 0 calc(48px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--ln);color:var(--mu);font-size:12.5px;max-width:70ch}
-#msg{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--bg2);border:1px solid var(--am);border-radius:4px;padding:10px 16px;font-size:14px;max-width:calc(100% - 32px)}
-#msg:empty{display:none}
+        <article class="project">
+          <div class="project-top"><span class="project-type">IA aplicada · Suporte técnico</span><span class="status">Protótipo de estudo</span></div>
+          <h3>Assistente técnico PTX-FD3000</h3>
+          <p>Versão especializada do conceito de consulta a manuais, direcionada ao manual de um inversor de frequência. Usa recuperação de trechos para apoiar dúvidas técnicas.</p>
+          <ul><li>Pipeline RAG com PDF e FAISS.</li><li>Embeddings NVIDIA e modelo Llama via NVIDIA NIM.</li><li>Respostas devem ser conferidas no manual oficial e por profissional qualificado.</li></ul>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">FAISS</span><span class="tag">NVIDIA NIM</span></div>
+          <div class="project-links"><a href="https://github.com/kaiky1312200923213/Inversor-de-Frequ-ncia-PTX-FD3000-Com-IA-aplicada" target="_blank" rel="noopener noreferrer">Código e instruções ↗</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-@media(pointer:coarse),(max-width:760px){.sb button{min-height:44px}.bt,.lk,.ar{min-height:44px}.ar{min-width:44px}.rg input{height:44px}.site nav a,.site nav button{min-height:36px}}
+  <section id="tecnologias">
+    <div class="container">
+      <div class="section-head">
+        <div><p class="kicker">03 · Ferramentas</p><h2 class="section-title">Tecnologias utilizadas</h2></div>
+        <p class="section-lead">Agrupadas pelo contexto em que aparecem nos projetos — não como uma escala de proficiência.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group"><h3>Linguagens e interface</h3><p>Python · JavaScript · TypeScript · HTML · CSS</p></div>
+        <div class="skill-group"><h3>IA e recuperação de informação</h3><p>Streamlit · LangChain · Agno · FAISS · NVIDIA NIM</p></div>
+        <div class="skill-group"><h3>Dados e serviços</h3><p>SQLite · Supabase · Firebase / Firestore · Pandas</p></div>
+        <div class="skill-group"><h3>Ferramentas e publicação</h3><p>Git · GitHub · Vite · Tailwind CSS · Netlify · Vercel</p></div>
+      </div>
+    </div>
+  </section>
 
-@media(max-width:980px){
-.wrap{grid-template-columns:1fr;gap:36px}
-aside{position:static}
-}
-@media(max-width:760px){
-.hero{grid-template-columns:minmax(0,1fr);grid-template-rows:1fr auto auto;padding:0 0 24px var(--ml)}
-.hc{grid-column:1;padding:130px var(--ml) 22px 0}
-.rail{grid-column:1;grid-row:2;margin:0;padding-bottom:20px;gap:10px}
-.cd{flex-basis:108px}
-.cl b{font-size:14px}
-.ctl{grid-column:1;grid-row:3;margin:0}
-.hero h2{font-size:clamp(44px,13vw,84px)}
-.site{position:absolute}
-.site.sol{position:fixed}
-.pt{grid-template-columns:auto 1fr;gap:0 16px}
-.pc{grid-column:1/-1;padding:12px 0 0}
-.it{grid-template-columns:1fr}.ct{text-align:left}
-.sb{width:100%}.sb button{flex:1;padding:0 4px;font-size:12.5px}
-.m{font-size:14px}
-}
-@media(max-width:420px){.site nav{gap:2px 18px}.site nav a,.site nav button{font-size:10px;letter-spacing:.14em}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.bgl svg{transform:none}}
+  <section id="outros">
+    <div class="container">
+      <div class="section-head">
+        <div><p class="kicker">04 · Exploração</p><h2 class="section-title">Outros projetos</h2></div>
+        <p class="section-lead">Experimentos e estudos adicionais disponíveis no GitHub.</p>
+      </div>
+      <div class="more-grid">
+        <div class="more-item"><a href="https://github.com/kaiky1312200923213/AURA-IA" target="_blank" rel="noopener noreferrer">AURA IA ↗</a><p>Chat em Python com Streamlit e histórico em SQLite.</p></div>
+        <div class="more-item"><a href="https://github.com/kaiky1312200923213/AgentLang" target="_blank" rel="noopener noreferrer">AgentLang ↗</a><p>Agente com LangGraph para consultar dados SQLite.</p></div>
+        <div class="more-item"><a href="https://github.com/kaiky1312200923213/AgentChinook" target="_blank" rel="noopener noreferrer">AgentChinook ↗</a><p>Experimento de agente e consultas sobre banco Chinook.</p></div>
+        <div class="more-item"><a href="https://github.com/kaiky1312200923213/Jarvis-IA-" target="_blank" rel="noopener noreferrer">Jarvis IA ↗</a><p>Demonstração de automação desktop com PyAutoGUI.</p></div>
+        <div class="more-item"><a href="https://github.com/kaiky1312200923213/Jogo-entregador" target="_blank" rel="noopener noreferrer">Jogo Entregador ↗</a><p>Protótipo de jogo em HTML Canvas.</p></div>
+        <div class="more-item"><a href="https://github.com/kaiky1312200923213/Projetos-com-python" target="_blank" rel="noopener noreferrer">Projetos com Python ↗</a><p>Exercícios e experimentos de programação e IA.</p></div>
+      </div>
+    </div>
+  </section>
 
-@media print{
-  body{background:#fff!important;color:#111!important;overflow:visible}
-  #top,.site,.hero,.tools,#warn,#msg,.ct,.ha,footer{display:none!important}
-  .wrap{display:block;padding:20px!important}
-  aside{position:static!important;margin-bottom:24px}
-  .pct{font-size:42px}
-  .bar{background:#ddd}.bar i{background:#333}
-  .ph{break-inside:avoid;padding-bottom:20px}
-  .pt{border-bottom:1px solid #555}
-  .pn{color:#111}
-  .m,.lead,.pc,#k{color:#555!important}
-  .it{break-inside:avoid;border-color:#ddd}
-  .it.s2 h3{color:#555!important}
-  a{color:#111;text-decoration:none}
-}
-</style></head><body>
-<div id="top" aria-hidden="true"><i id="pgi"></i></div>
+  <section id="contato" class="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div><p class="kicker">05 · Próximo passo</p><h2 class="section-title">Vamos conversar?</h2><p>Estou buscando uma oportunidade para aprender com uma equipe, contribuir com projetos e evoluir na área de tecnologia. Meu GitHub reúne os códigos e a documentação dos trabalhos apresentados aqui.</p></div>
+        <a class="button primary" href="https://github.com/kaiky1312200923213" target="_blank" rel="noopener noreferrer">Falar pelo GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
 
-<div class="site" id="site">
-<a class="brand" href="#hero" aria-label="Trilha de Cibersegurança"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.2" ry="10"/><path d="M2 12h20"/></svg>Trilha</a>
-<nav aria-label="Principal">
-<a href="#lista">Cursos</a>
-<button id="ex" type="button">Backup</button>
-<button id="im" type="button">Restaurar</button>
-<button id="rs" type="button">Zerar progresso</button>
-</nav>
-</div>
-<input type="file" id="fi" accept="application/json,.json" hidden>
-
-<section class="hero" id="hero" aria-roledescription="carrossel" aria-label="Fases da trilha">
-<h1 class="sr">Trilha de Cibersegurança</h1>
-<div id="bg"></div><div class="scrim"></div>
-<div class="hc" id="hc" aria-live="polite">
-<p class="eb" id="hl"></p>
-<h2 id="ht"></h2>
-<p class="hp" id="hp"></p>
-<p class="hs" id="hs"></p>
-<div class="ha">
-<a class="go" id="go" href="#f0" aria-label="Ir para os itens da fase"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
-<a class="ol" id="ol" href="#f0">Ver itens da fase</a>
-</div>
-</div>
-<div class="rail" id="rail"></div>
-<div class="ctl">
-<button class="ar" id="pv" type="button" aria-label="Fase anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-<button class="ar" id="nv" type="button" aria-label="Próxima fase"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-<div class="line" aria-hidden="true"><i id="li"></i></div>
-<div id="cn" aria-hidden="true"><span id="cnn">01</span><small id="cnt">/ 08</small></div>
-</div>
-</section>
-
-<div class="wrap" id="lista">
-<aside>
-<p class="lead">Meta: Red Team. Base sólida, prática diária e um writeup de tudo o que você concluir.</p>
-<p class="lb">Progresso geral</p>
-<p class="pct" id="pct">0%</p>
-<div class="bar"><i id="pgb"></i></div>
-<p id="k" aria-live="polite"></p>
-<div class="nb" id="next"></div>
-<div id="warn" hidden>Você tem mais de 2 itens em andamento. Foque em no máximo 2 cursos e 1 lab.</div>
-<label class="tools"><input type="checkbox" id="hd"> Ocultar concluídos</label>
-</aside>
-<main id="ch"></main>
-</div>
-
-<footer>Todo lab concluído vira um writeup. O progresso é salvo só neste navegador: cada pessoa tem o seu e ninguém altera o de outra. Para levar para outro aparelho, use Backup e Restaurar. Itens com “Buscar” abrem uma pesquisa pelo curso; quando achar o link direto, use o dele. <span>© 2026 Kaiky Yoshio Ono Marins. Todos os direitos reservados.</span></footer>
-<p id="msg" role="status"></p>
-
-<script>
-const PH=[["Linux e Base","Aprenda Linux do básico ao avançado com materiais gratuitos e prática no terminal."],["Fundamentos","Conceitos, criptografia e privacidade antes das ferramentas."],["Prática","Laboratórios e desafios. Todo lab vira um writeup."],["Web/AppSec","Como aplicações web quebram e como são testadas."],["Red Team","Pentest, engenharia reversa e ataque estruturado."],["Blue Team","Detecção e forense: entender o outro lado."],["Certificações","Provas que validam o que você já praticou."],["Extra","Complementos de IA para estudar mais rápido."]];
-const NA="Cisco NetAcad",NAU="https://www.netacad.com";
-const D=[
-[0,1,"OverTheWire Bandit · desafios de terminal (sem certificado)","OverTheWire","https://overthewire.org/wargames/bandit/"],
-[0,1,"Linux · Curso em Vídeo (40 horas; aulas grátis)","Curso em Vídeo","https://www.cursoemvideo.com/curso/linux/"],
-[0,1,"Linux Journey · fundamentos e linha de comando","Linux Journey / LabEx","https://labex.io/linuxjourney"],
-[0,2,"Introduction to Linux (LFS101) · gratuito com badge digital","The Linux Foundation","https://training.linuxfoundation.org/training/introduction-to-linux/"],
-[0,3,"Linux Unhatched · opcional (8 horas)","Cisco Networking Academy","https://www.netacad.com/pt/courses/linux-unhatched"],
-[0,2,"Guia Foca Linux · do iniciante ao avançado","Guia Foca","https://www.guiafoca.org/guiaonline/"],
-[1,1,"CS50’s Introduction to Cybersecurity","HarvardX","https://cs50.harvard.edu/cybersecurity"],
-[1,1,"Introduction to Cybersecurity",NA,NAU],
-[1,2,"Fundamentos de Cibersegurança","Udemy"],
-[1,2,"Cybersecurity","Eu Capacito"],
-[1,2,"Google Cybersecurity Professional Certificate","Coursera","https://www.coursera.org/professional-certificates/google-cybersecurity"],
-[1,2,"Entendendo Criptografia (partes 1 e 2)","Fábio Akita","y"],
-[1,2,"Chaves públicas vs chave privada","Mateus Müller","y"],
-[1,3,"Everything You Need to Know as a Cybersecurity Beginner","YouTube","y"],
-[1,3,"Fundamentos da LGPD","Escola Virtual.Gov","https://www.escolavirtual.gov.br"],
-[1,3,"Wiretaps to Big Data: Privacy and Surveillance","CornellX"],
-[2,1,"TryHackMe · trilha gratuita","TryHackMe","https://tryhackme.com"],
-[2,1,"picoCTF · desafios do básico","CyLab","https://picoctf.org"],
-[2,1,"PortSwigger Web Security Academy","PortSwigger","https://portswigger.net/web-security"],
-[2,2,"Hack The Box","Hack The Box","https://www.hackthebox.com"],
-[2,2,"Vulnhub","Vulnhub","https://www.vulnhub.com"],
-[2,2,"OWASP WebGoat","OWASP","https://owasp.org/www-project-webgoat"],
-[2,3,"Hacking Club","Hacking Club","https://hackingclub.com"],
-[3,1,"OWASP Top 10","OWASP","https://owasp.org/www-project-top-ten"],
-[3,2,"OWASP ZAP from Scratch","Udemy"],
-[3,2,"SAST, DAST e IAST","Guia Anônimo","y"],
-[3,3,"RASP no cenário de AppSec","Conviso"],
-[4,1,"Introdução ao Hacking e Pentest 2.0","Solyd"],
-[4,1,"Python para Pentesters","Curso"],
-[4,2,"Curso de Engenharia Reversa","Mente Binária","y"],
-[4,3,"Ethical Hacking C2 (EHC2)","C2 Go Hacking"],
-[5,2,"Get Started with Elastic Security (SIEM)","Elastic"],
-[5,2,"Forense Digital","Curso"],
-[6,1,"Analista de Cibersegurança Júnior",NA,NAU],
-[6,1,"CCNA",NA,NAU],
-[6,2,"Cisco NSE","Cisco"],
-[6,2,"CompTIA Security+","CompTIA"],
-[6,2,"Inglês técnico ou curso técnico SENAI","SENAI"],
-[6,3,"freeCodeCamp · caminho de TI","freeCodeCamp","https://www.freecodecamp.org"],
-[7,3,"Claude 101","Anthropic"],
-[7,3,"AI Fluency","Anthropic"],
- [0,2,"Linux Essentials · opcional (70 horas; selo Cisco)","Cisco Networking Academy","https://www.netacad.com/courses/linux-essentials/"],
- [0,2,"The Linux Command Line · livro gratuito (inglês)","William Shotts","https://linuxcommand.org/tlcl.php"],
- [0,2,"Objetivos oficiais gratuitos da LPIC-1 · provas 101 e 102","Linux Professional Institute","https://www.lpi.org/pt-br/exam-101-102-objectives/"],
- [0,3,"Documentação oficial do Ubuntu","Ubuntu","https://ubuntu.com/server/docs/"],
- [0,3,"Arch Wiki · referência para nível avançado","Arch Linux","https://wiki.archlinux.org/"],
- [0,2,"Projetos práticos: Nginx, SSH, firewall, Bash e cron","Laboratório Linux","https://ubuntu.com/server/docs"]];
-
-const K="trilha-ciber-v3",K2="trilha-ciber-v2",K1="trilha-ciber-v1",$=s=>document.querySelector(s);
-const h=(t,a,...k)=>{const e=document.createElement(t);Object.entries(a||{}).forEach(([n,v])=>e.setAttribute(n,v));e.append(...k);return e};
-// Identificador estável: alterar a ordem da lista não transfere o progresso para outro curso.
-const slug=s=>String(s).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-const key=i=>"f"+D[i][0]+"-"+slug(D[i][2]);
-const IDS=new Set(D.map((_,i)=>key(i)));
-const valid=x=>!!(x&&typeof x=="object"&&[0,1,2].includes(x.s));
-const cleanCurrent=o=>{const r={};if(o&&typeof o=="object"&&!Array.isArray(o))for(const [k,x] of Object.entries(o)){if(IDS.has(k)&&valid(x)){const p=Math.round(+x.p);r[k]={s:x.s,p:Number.isFinite(p)&&p>=0&&p<=100?p:0}}}return r};
-// Migra backups antigos por posição. Os seis itens antigos da fase Base foram substituídos,
-// então seu estado é descartado em vez de marcar cursos novos como concluídos por engano.
-const migrateLegacy=o=>{if(o&&typeof o=="object"&&!Array.isArray(o)&&o.d&&typeof o.d=="object")o=o.d;const r={};if(!o||typeof o!="object"||Array.isArray(o))return r;for(const [k,x] of Object.entries(o)){if(!valid(x))continue;let id=k;if(/^\d+$/.test(k)){const i=Number(k);if(i<6||i>=D.length)continue;id=key(i)}if(IDS.has(id)){const p=Math.round(+x.p);r[id]={s:x.s,p:Number.isFinite(p)&&p>=0&&p<=100?p:0}}}return r};
-let S={},H=false,rc=false,cur=0;
-try{const current=localStorage.getItem(K);if(current)S=cleanCurrent(JSON.parse(current));else{const previous=localStorage.getItem(K2)||localStorage.getItem(K1);if(previous){S=migrateLegacy(JSON.parse(previous));if(Object.keys(S).length)localStorage.setItem(K,JSON.stringify(S))}}}catch(e){}
-const say=t=>{const m=$("#msg");m.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>m.textContent="",5000)};
-const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){say("Não foi possível salvar neste navegador. Use Backup para não perder o progresso.")}};
-const g=i=>S[key(i)]||{s:0,p:0};
-const pc=i=>{const x=g(i);return x.s==2?100:x.s==1?x.p:0};
-const sr=d=>!d[4]||d[4]==="y";
-const url=d=>d[4]==="y"?"https://www.youtube.com/results?search_query="+encodeURIComponent(d[2]+" "+d[3]):d[4]||"https://www.google.com/search?q="+encodeURIComponent(d[2]+" "+d[3]);
-const ln=(d,c)=>h("a",{class:c,href:url(d),target:"_blank",rel:"noopener noreferrer"},sr(d)?"Buscar":"Abrir");
-const pad=n=>String(n).padStart(2,"0");
-const idx=j=>D.map((d,i)=>d[0]==j?i:-1).filter(i=>i>=0);
-
-/* ---------- cenas: cada fase tem a sua paisagem de cumes em camadas ---------- */
-// [céu topo, horizonte, cume distante, cume médio, cume próximo]
-const P=[["#16241c","#92a366","#4a6a42","#2c4832","#14251c"],
-["#16202e","#8fa6bb","#4d657e","#304559","#1a2a3a"],
-["#35261f","#e3a97d","#b27c57","#7d5038","#472c1f"],
-["#162124","#8fa9a6","#587472","#385150","#1d3030"],
-["#1d0e10","#cf5d3c","#7d3029","#4b1b1b","#290d10"],
-["#0b162d","#5588c8","#2f5392","#1d3763","#0e2040"],
-["#25221e","#cdbb9d","#908473","#5e5549","#35302a"],
-["#1c1430","#ad92d8","#634e92","#40306a","#231a3e"]];
-function ridge(seed,base,amp,fr){let s=seed;const r=()=>(s=s*16807%2147483647)/2147483647,p=[r()*6.3,r()*6.3,r()*6.3];let d="M0 900";for(let x=0;x<=1640;x+=32){const y=base-amp*(.5*(1-Math.abs(Math.sin(x*fr+p[0])))+.3*(1-Math.abs(Math.sin(x*fr*2.3+p[1])))+.2*Math.sin(x*fr*5.1+p[2]));d+="L"+x+" "+y.toFixed(0)}return d+"L1640 900Z"}
-function scene(j,u,card){
-const c=P[j],vb=card?(((j*211)%900)+" 0 600 900"):"0 0 1600 900",sx=340+((j*397)%900),sy=300+((j*53)%140);
-const L=[[520,230,.0058],[650,200,.0092],[790,170,.0135]];
-let s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="'+vb+'" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><defs>'+
-'<linearGradient id="s'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c[0]+'"/><stop offset=".62" stop-color="'+c[1]+'"/></linearGradient>'+
-'<radialGradient id="o'+u+'"><stop offset="0" stop-color="'+c[1]+'" stop-opacity=".7"/><stop offset="1" stop-color="'+c[1]+'" stop-opacity="0"/></radialGradient>'+
-'<linearGradient id="h'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+c[1]+'" stop-opacity="0"/><stop offset="1" stop-color="'+c[1]+'" stop-opacity=".5"/></linearGradient></defs>'+
-'<rect width="1640" height="900" fill="url(#s'+u+')"/><circle cx="'+sx+'" cy="'+sy+'" r="360" fill="url(#o'+u+')"/>';
-L.forEach((l,i)=>{s+='<path d="'+ridge(j*97+i*13+7,l[0],l[1],l[2])+'" fill="'+c[2+i]+'"/>';if(i<2)s+='<rect y="'+(l[0]-60)+'" width="1640" height="320" fill="url(#h'+u+')"/>'});
-return s+"</svg>"}
-
-/* ---------- resumo ---------- */
-function resumo(){
-const n=D.length,tot=D.reduce((a,_,i)=>a+pc(i),0)/n,done=D.filter((_,i)=>g(i).s==2).length,doing=D.filter((_,i)=>g(i).s==1).length;
-$("#pgi").style.width=tot+"%";$("#pgb").style.width=tot+"%";
-$("#pct").textContent=Math.round(tot)+"%";
-$("#k").textContent=done+" de "+n+" concluídos, "+doing+" em andamento.";
-$("#warn").hidden=doing<=2;
-const ordered=PH.flatMap((_,j)=>idx(j));const nx=ordered.find(i=>g(i).s!=2)??-1,b=$("#next");b.replaceChildren();
-if(nx<0){b.append(h("p",{class:"lb"},"Trilha completa"),h("h3",0,"Agora é escrever writeups."));heroStats();return}
-const x=D[nx];
-b.append(h("p",{class:"lb"},"Próximo passo"),h("h3",0,x[2]),h("p",{class:"m"},PH[x[0]][0]+", "+x[3]),ln(x,"bt"));
-if(g(nx).s!=1)b.append(h("button",{class:"bt pr",type:"button","data-i":nx,"data-s":1},"Começar"));
-heroStats()}
-
-function heroStats(){const ix=idx(cur),dn=ix.filter(i=>g(i).s==2).length;$("#hs").textContent=dn+" de "+ix.length+" concluídos nesta fase"}
-
-/* ---------- lista de fases ---------- */
-function rows(){
-const root=$("#ch");root.replaceChildren();
-// Mostra somente a fase escolhida no carrossel superior; as demais não ficam abaixo dela.
-const j=cur,p=PH[j],ix=idx(j),dn=ix.filter(i=>g(i).s==2).length;
-const sec=h("section",{id:"f"+j,class:"ph"},h("div",{class:"pt"},h("span",{class:"pn","aria-hidden":"true"},pad(j+1)),h("div",0,h("h2",0,p[0]),h("p",{class:"m"},p[1])),h("span",{class:"pc"},dn+" de "+ix.length+" concluídos")));
-ix.forEach(i=>{
-const d=D[i],x=g(i);if(H&&x.s==2)return;
-sec.append(h("div",{class:"it s"+x.s},
-h("div",0,h("h3",0,d[2]),h("p",{class:"m"},d[3]+", prioridade "+["","alta","média","baixa"][d[1]])),
-h("div",{class:"ct"},h("div",{class:"sb",role:"group","aria-label":"Status de "+d[2]},...["Quero fazer","Fazendo","Concluído"].map((t,k)=>h("button",{type:"button","data-i":i,"data-s":k,"aria-pressed":x.s==k},t))),ln(d,"lk")),
-...(x.s==1?[h("label",{class:"rg"},"Progresso",h("input",{type:"range",min:0,max:100,step:5,value:x.p,"aria-label":"Progresso de "+d[2],"data-i":i}),h("output",0,x.p+"%"))]:[])))});
-root.append(sec)}
-
-/* ---------- hero ---------- */
-const bg=$("#bg");
-PH.forEach((_,j)=>{const l=h("div",{class:"bgl"});l.innerHTML=scene(j,"b"+j,false);bg.append(l)});
-function hero(){
-const p=PH[cur];
-$("#hl").textContent="Trilha de Cibersegurança · Fase "+pad(cur+1)+" de "+pad(PH.length);
-$("#ht").textContent=p[0];$("#hp").textContent=p[1];
-$("#go").href=$("#ol").href="#f"+cur;
-$("#cnn").textContent=pad(cur+1);$("#cnt").textContent="/ "+pad(PH.length);
-$("#li").style.width=((cur+1)/PH.length*100)+"%";
-document.querySelectorAll(".bgl").forEach((e,i)=>e.classList.toggle("on",i==cur));
-heroStats();
-const c=$("#hc");c.classList.remove("sw");void c.offsetWidth;c.classList.add("sw");
-const r=$("#rail");r.replaceChildren();
-for(let k=1;k<PH.length;k++){const j=(cur+k)%PH.length,b=h("button",{type:"button",class:"cd","data-j":j,"aria-label":"Ir para a fase "+pad(j+1)+": "+PH[j][0]}),a=h("span",{class:"art"});
-b.style.setProperty("--d",(k*55)+"ms");a.innerHTML=scene(j,"c"+j,true);
-b.append(a,h("span",{class:"cl"},h("small",0,"Fase "+pad(j+1)),h("b",0,PH[j][0])));r.append(b)}}
-const go=j=>{cur=(j+PH.length)%PH.length;hero();rows()};
-$("#pv").onclick=()=>go(cur-1);$("#nv").onclick=()=>go(cur+1);
-$("#rail").addEventListener("click",e=>{const b=e.target.closest(".cd");if(b)go(+b.dataset.j)});
-addEventListener("keydown",e=>{if(e.target.closest("input,textarea,select")||e.altKey||e.ctrlKey||e.metaKey||scrollY>innerHeight*.6)return;if(e.key=="ArrowRight")go(cur+1);else if(e.key=="ArrowLeft")go(cur-1)});
-let tx=null;const hr=$("#hero");
-hr.addEventListener("touchstart",e=>{tx=e.touches[0].clientX},{passive:true});
-hr.addEventListener("touchend",e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(dx)>50)go(cur+(dx<0?1:-1))},{passive:true});
-
-/* ---------- ações ---------- */
-document.addEventListener("click",e=>{
-const b=e.target.closest("button[data-s]");
-if(b){const i=+b.dataset.i,s=+b.dataset.s;S[key(i)]={s,p:g(i).p};save();resumo();rows();const f=document.querySelector('button[data-i="'+i+'"][data-s="'+s+'"]');if(f)f.focus()}
-});
-document.addEventListener("input",e=>{
-if(e.target.type=="range"){const i=+e.target.dataset.i;S[key(i)]={s:1,p:+e.target.value};save();e.target.nextElementSibling.textContent=e.target.value+"%";resumo()}
-});
-$("#hd").onchange=e=>{H=e.target.checked;rows()};
-$("#rs").onclick=e=>{const b=e.target;
-if(!rc){rc=true;b.textContent="Clique de novo para zerar";setTimeout(()=>{rc=false;b.textContent="Zerar progresso"},3000)}
-else{rc=false;S={};save();b.textContent="Zerar progresso";resumo();rows()}};
-$("#ex").onclick=()=>{
-const u=URL.createObjectURL(new Blob([JSON.stringify({v:3,d:S})],{type:"application/json"})),a=h("a",{href:u,download:"trilha-progresso.json"});
-document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);
-say("Backup salvo. Guarde o arquivo para restaurar em outro aparelho.")};
-$("#im").onclick=()=>$("#fi").click();
-$("#fi").onchange=e=>{
-const f=e.target.files[0];e.target.value="";if(!f)return;
-if(f.size>65536)return say("Arquivo grande demais para ser um backup da trilha.");
-const r=new FileReader();
-r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||typeof o!="object"||Array.isArray(o)||!o.d||typeof o.d!="object"||Array.isArray(o.d))throw 0;if(o.v===3)S=cleanCurrent(o.d);else if(o.v===2)S=migrateLegacy(o);else throw 0;save();resumo();rows();say("Progresso restaurado.")}catch(_){say("Backup inválido. Use um arquivo gerado pelo botão Backup.")}};
-r.readAsText(f)};
-
-/* cabeçalho sólido após o hero */
-const st=$("#site");let tk=0;
-const sc=()=>{tk=0;st.classList.toggle("sol",scrollY>hr.offsetHeight-90)};
-addEventListener("scroll",()=>{tk||(tk=requestAnimationFrame(sc))},{passive:true});addEventListener("resize",sc);
-
-hero();resumo();rows();sc();
-</script></body></html>
+<footer><div class="container foot"><span>© 2026 Kaiky Yoshio Ono Marins. Todos os direitos reservados.</span><span><a href="https://github.com/kaiky1312200923213" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="/trilha.html">Trilha de Cibersegurança</a></span></div></footer>
+</body>
+</html>
